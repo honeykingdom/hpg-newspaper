@@ -91,21 +91,21 @@ const Subtitle = styled.span<{ variant: ArticleVariant }>`
   height: 32px;
   padding-left: 112px; // 32+48+32
   padding-right: 32px;
+  font-family: "Chakra Petch", sans-serif;
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
   text-align: right;
-  letter-spacing: 2px;
+  letter-spacing: 0.2em;
 
   &:after {
     content: "";
     position: absolute;
-    top: 50%;
+    top: 6px;
     left: 32px;
     width: 48px;
     height: 2px;
     background-color: currentColor;
-    transform: translateY(-50%);
   }
 `;
 const Title = styled.div`
