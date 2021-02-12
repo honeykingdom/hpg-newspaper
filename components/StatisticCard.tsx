@@ -48,6 +48,7 @@ const ImageWrapper = styled.div`
   right: 16px;
   width: 140px;
   height: 90px;
+  padding: 2px;
 `;
 const Image = styled.img`
   display: block;
@@ -135,8 +136,8 @@ const StatisticCard = ({ name, time, level, points, partner }: Props) => (
       <Image
         src={players[name].image}
         alt={players[name].name}
-        width={140}
-        height={90}
+        width={136}
+        height={86}
       />
       <StyledImageBorder />
     </ImageWrapper>
