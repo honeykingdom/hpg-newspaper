@@ -37,7 +37,8 @@ const ContainerRoot = styled.div`
 `;
 const Inner = styled.div`
   margin: 0 auto;
-  width: 800px;
+  padding: 0 32px;
+  width: 864px;
 `;
 const articleButton = css`
   display: none;
