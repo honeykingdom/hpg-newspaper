@@ -160,10 +160,6 @@ const Content = styled.div<ContentProps>`
 
   p {
     margin: 16px 0;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   hr {
@@ -172,6 +168,26 @@ const Content = styled.div<ContentProps>`
     background-color: ${(p) => bgColorsMap[p.color]};
     border: none;
     clip-path: polygon(0 0, 100% 0, 100% 2px, 88px 2px, 80px 100%, 0% 100%);
+  }
+
+  blockquote {
+    position: relative;
+    margin-left: 24px;
+    margin-right: 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      bottom: 5px;
+      left: -16px;
+      width: 2px;
+      background-color: var(--color-white);
+    }
+  }
+
+  & :last-child {
+    margin-bottom: 0;
   }
 `;
 const BottomLine = styled(Line)<{ color: ArticleColor }>`
