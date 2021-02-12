@@ -118,7 +118,7 @@ const articles = [
   },
   {
     color: "yellow",
-    title: "Маленький шаг для чата - большой для Мэла",
+    title: "Маленький шаг для чата — большой для Мэла",
     subtitle: "Достижение",
     image: "/images/09/malenkiy-shag.jpg",
     imageHeight: 531,

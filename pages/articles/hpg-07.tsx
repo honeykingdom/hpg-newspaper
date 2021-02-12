@@ -21,7 +21,7 @@ const articles = [
   },
   {
     color: "blue",
-    title: "Что было на HPG - останется на HPG",
+    title: "Что было на HPG — останется на HPG",
     subtitle: "Мошносводка",
     image: "/images/07/chto-bilo-na-hpg.jpg",
     imageHeight: 440,
