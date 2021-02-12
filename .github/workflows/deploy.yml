@@ -1,0 +1,39 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Publish to Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use Node 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies (with cache)
+        uses: bahmutov/npm-install@v1
+
+      # - name: Test
+      #   run: yarn test --ci --coverage --maxWorkers=2
+
+      - name: Build
+        run: yarn build && yarn export
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: './out'
+          production-deploy: true
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
