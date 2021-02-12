@@ -88,7 +88,8 @@ const Subtitle = styled.span<{ variant: ArticleVariant }>`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 32px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 112px; // 32+48+32
   padding-right: 32px;
   font-family: "Chakra Petch", sans-serif;
@@ -97,11 +98,12 @@ const Subtitle = styled.span<{ variant: ArticleVariant }>`
   text-transform: uppercase;
   text-align: right;
   letter-spacing: 0.2em;
+  line-height: 16px;
 
   &:after {
     content: "";
     position: absolute;
-    top: 6px;
+    top: 14px;
     left: 32px;
     width: 48px;
     height: 2px;
