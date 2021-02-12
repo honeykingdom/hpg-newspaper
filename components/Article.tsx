@@ -77,7 +77,7 @@ const ArticleRoot = styled.article<{ variant: ArticleVariant }>`
     `};
 `;
 const Header = styled.header<{ variant: ArticleVariant; color: ArticleColor }>`
-  padding-top: ${(p) => (p.variant === "default" ? "32px" : "16px")};
+  padding-top: ${(p) => (p.variant === "default" ? "32px" : "24px")};
   overflow: hidden;
   color: ${(p) => colorsMap[p.color]};
   background-color: ${(p) => bgColorsMap[p.color]};
