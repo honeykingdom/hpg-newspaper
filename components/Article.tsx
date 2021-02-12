@@ -76,22 +76,20 @@ const ArticleRoot = styled.article<{ variant: ArticleVariant }>`
       }
     `};
 `;
-const Header = styled.header<{ variant: ArticleVariant; color: ArticleColor }>`
-  padding-top: ${(p) => (p.variant === "default" ? "32px" : "24px")};
+const Header = styled.header<{ color: ArticleColor }>`
+  padding-top: 28px;
   overflow: hidden;
   color: ${(p) => colorsMap[p.color]};
   background-color: ${(p) => bgColorsMap[p.color]};
 `;
 const Subtitle = styled.span<{ variant: ArticleVariant }>`
   position: relative;
-  margin-bottom: ${(p) => (p.variant === "default" ? "24px" : "0")};
+  margin-bottom: ${(p) => (p.variant === "default" ? "28px" : "0")};
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 112px; // 32+48+32
-  padding-right: 32px;
+  padding-left: 96px; // 24+48+24
+  padding-right: 24px;
   font-family: "Chakra Petch", sans-serif;
   font-size: 12px;
   font-weight: bold;
@@ -103,20 +101,20 @@ const Subtitle = styled.span<{ variant: ArticleVariant }>`
   &:after {
     content: "";
     position: absolute;
-    top: 14px;
-    left: 32px;
+    top: 7px;
+    left: 24px;
     width: 48px;
     height: 2px;
     background-color: currentColor;
   }
 `;
 const Title = styled.div`
-  padding: 0 32px;
-  margin-bottom: 24px;
-  font-size: 38px;
+  padding: 0 24px;
+  margin-bottom: 20px;
+  font-size: 36px;
   font-weight: bold;
   font-family: "Chakra Petch", sans-serif;
-  letter-spacing: 1px;
+  line-height: 48px;
 `;
 const HeaderImageWrapper = styled.div`
   padding: 6px 0;
@@ -149,8 +147,8 @@ type ContentProps = {
   hasImage: boolean;
 };
 const Content = styled.div<ContentProps>`
-  padding: 0 32px;
-  padding-bottom: 32px;
+  padding: 0 24px;
+  padding-bottom: 24px;
   padding-top: ${(p) => (p.hasImage ? "8px" : "0")};
   line-height: 1.5;
   font-size: ${(p) => (p.variant === "default" ? "16px" : "18px")};
@@ -197,7 +195,7 @@ const Article = ({
 
   return (
     <ArticleRoot variant={variant}>
-      <Header variant={variant} color={color}>
+      <Header color={color}>
         <Subtitle variant={variant}>{subtitle}</Subtitle>
         {title && <Title>{title}</Title>}
         {image && (
