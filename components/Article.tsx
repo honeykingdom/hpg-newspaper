@@ -174,6 +174,7 @@ const Content = styled.div<ContentProps>`
     position: relative;
     margin-left: 24px;
     margin-right: 0;
+    font-size: 14px;
 
     &:before {
       content: "";
