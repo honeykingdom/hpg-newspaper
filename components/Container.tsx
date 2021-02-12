@@ -86,11 +86,11 @@ const GithubButton = styled.a`
   color: var(--color-gray);
   background-color: #171717;
   clip-path: polygon(0 0, 100% 0, 100% 100%);
-
-  svg {
-    height: 24px;
-    width: 24px;
-  }
+`;
+const StyledGithubIcon = styled(GithubIcon)`
+  display: block;
+  height: 24px;
+  width: 24px;
 `;
 
 type Props = {
@@ -138,7 +138,7 @@ const Container = ({
         rel="noreferrer noopener"
         title="Github Repository"
       >
-        <GithubIcon />
+        <StyledGithubIcon />
       </GithubButton>
     </ContainerRoot>
   );
