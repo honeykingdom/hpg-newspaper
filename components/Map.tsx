@@ -17,6 +17,14 @@ const StyledMapBorder = styled(MapBorder)`
   right: 0;
   bottom: 0;
 `;
+const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 768px;
+  height: 418px;
+  background-color: #1b1d1e;
+`;
 const Image = styled.img`
   display: block;
 `;
@@ -27,7 +35,9 @@ type Props = {
 
 const Map = ({ src }: Props) => (
   <MapRoot>
-    <Image src={src} alt="HPG map" width={768} height={418} />
+    <ImageWrapper>
+      <Image src={src} alt="HPG map" />
+    </ImageWrapper>
     <StyledMapBorder />
   </MapRoot>
 );
