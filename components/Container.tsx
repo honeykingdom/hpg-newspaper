@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled, { css } from "styled-components";
+import getCurrentArticleIndex from "../utils/getCurrentArticleIndex";
 
 const ArrowPrev = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
@@ -109,11 +110,10 @@ const Container = ({
   currentArticleNumber,
   articleNumbers,
 }: Props) => {
-  const current =
-    currentArticleNumber.length === 1
-      ? `0${currentArticleNumber}`
-      : currentArticleNumber;
-  const currentIndex = articleNumbers.findIndex((n) => n === current);
+  const currentIndex = getCurrentArticleIndex(
+    articleNumbers,
+    currentArticleNumber
+  );
   const isFirst = currentIndex === 0;
   const isLast = currentIndex === articleNumbers.length - 1;
 

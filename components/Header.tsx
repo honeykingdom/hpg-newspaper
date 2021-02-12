@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import getCurrentArticleIndex from "../utils/getCurrentArticleIndex";
 
 const HeaderRoot = styled.header`
   padding-top: 16px;
@@ -78,27 +79,35 @@ type Props = {
   articleNumbers: string[];
 };
 
-const Header = ({ date, currentArticleNumber, articleNumbers }: Props) => (
-  <HeaderRoot>
-    <Description>
-      {date && <span>{date}</span>}
-      <ArticleNumber>
-        {currentArticleNumber && (
-          <ArticleNumberText>Выпуск {currentArticleNumber}</ArticleNumberText>
-        )}
-        <Dropdown>
-          {articleNumbers.map((n) => (
-            <Item key={n}>
-              <Link href={`/articles/hpg-${n}`}>
-                <a>Выпуск {normalizeArticleNumber(n)}</a>
-              </Link>
-            </Item>
-          ))}
-        </Dropdown>
-      </ArticleNumber>
-    </Description>
-    <Logo />
-  </HeaderRoot>
-);
+const Header = ({ date, currentArticleNumber, articleNumbers }: Props) => {
+  const currentIndex = getCurrentArticleIndex(
+    articleNumbers,
+    currentArticleNumber
+  );
+  const renderedArticles = articleNumbers.filter((_, i) => i !== currentIndex);
+
+  return (
+    <HeaderRoot>
+      <Description>
+        {date && <span>{date}</span>}
+        <ArticleNumber>
+          {currentArticleNumber && (
+            <ArticleNumberText>Выпуск {currentArticleNumber}</ArticleNumberText>
+          )}
+          <Dropdown>
+            {renderedArticles.map((n) => (
+              <Item key={n}>
+                <Link href={`/articles/hpg-${n}`}>
+                  <a>Выпуск {normalizeArticleNumber(n)}</a>
+                </Link>
+              </Item>
+            ))}
+          </Dropdown>
+        </ArticleNumber>
+      </Description>
+      <Logo />
+    </HeaderRoot>
+  );
+};
 
 export default Header;
