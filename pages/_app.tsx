@@ -1,5 +1,11 @@
+import ReactGA from "react-ga";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Head from "next/head";
+
+if (process.browser) {
+  ReactGA.initialize("G-J5S7V75HYZ");
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
 
 const GlobalStyle = createGlobalStyle`
   :root {
