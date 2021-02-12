@@ -43,8 +43,8 @@ const articles = [
         style={{
           display: 'flex',
           justifyContent: 'center',
-          margin: '0 -32px',
-          width: 'calc(100% + 64px)',
+          margin: '0 -24px',
+          width: 'calc(100% + 48px)',
           backgroundColor: 'var(--color-red)'
         }}
       >
