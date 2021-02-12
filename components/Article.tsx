@@ -76,8 +76,8 @@ const ArticleRoot = styled.article<{ variant: ArticleVariant }>`
       }
     `};
 `;
-const Header = styled.header<{ color: ArticleColor }>`
-  padding-top: 32px;
+const Header = styled.header<{ variant: ArticleVariant; color: ArticleColor }>`
+  padding-top: ${(p) => (p.variant === "default" ? "32px" : "16px")};
   overflow: hidden;
   color: ${(p) => colorsMap[p.color]};
   background-color: ${(p) => bgColorsMap[p.color]};
@@ -197,7 +197,7 @@ const Article = ({
 
   return (
     <ArticleRoot variant={variant}>
-      <Header color={color}>
+      <Header variant={variant} color={color}>
         <Subtitle variant={variant}>{subtitle}</Subtitle>
         {title && <Title>{title}</Title>}
         {image && (
