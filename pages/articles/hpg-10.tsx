@@ -89,7 +89,7 @@ const articles = [
   {
     color: "white",
     title: "Хранитель времени",
-    subtitle: "",
+    subtitle: "EZ",
     image: "/images/10/sanya-segall.png",
     imageHeight: 218,
     content: `
