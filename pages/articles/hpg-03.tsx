@@ -11,7 +11,7 @@ const articles = [
     color: "blue",
     title: "От вражды до дружбы один шаг",
     subtitle: "03.02.2021",
-    image: "/images/02/ot-vrazhdy.jpg",
+    image: "/images/03/ot-vrazhdy.jpg",
     imageHeight: 225,
     content: `
       **«Мир длился недолго...»** - Именно так подумали все зрители, наблюдавшие за тем, как **Факер** высказывал свои претензии на клетки **Мела**.
@@ -40,7 +40,7 @@ const articles = [
     color: "yellow",
     title: "Украденные сейвы",
     subtitle: "03.02.2021",
-    image: "/images/02/ukradenie-seivy.jpg",
+    image: "/images/03/ukradenie-seivy.jpg",
     imageHeight: 252,
     content: `
       Не обошлось без драмы и на стриме у **Сани Сегала**. Играя в **Conga Master**, спустя 4 часа геймплея кто-то предложил ему сменить персонажа, что требовало выйти в главное меню. Это и стало ключевой ошибкой...
@@ -54,7 +54,7 @@ const articles = [
     color: "blue",
     title: "Тактические дропы и недропы",
     subtitle: "03.02.2021",
-    image: "/images/02/takticheskie-dropy.jpg",
+    image: "/images/03/takticheskie-dropy.jpg",
     imageHeight: 247,
     content: `
       Интересно наблюдать и за тактикой двух старых друзей: **Бровяна** и **Бьёрна**. На второй день Чильтян не потерял контроль и дальше проходил одну игру за другой, пока не дошёл до **Garden City**. Говорят, игра проходится за **30 часов**. На секунду это заставило **Брови** заколебаться, но, проявив железную волю, он решил идти без дропов и дальше, поскольку рассчитывает на соответствующий **Трофей**.
@@ -74,7 +74,7 @@ const articles = [
     color: "blue",
     title: "ОЦЕНКА НОЛЬ!",
     subtitle: "03.02.2021",
-    image: "/images/02/ozenka-nolj.jpg",
+    image: "/images/03/ozenka-nolj.jpg",
     imageHeight: 247,
     content: `
       После двух головоломок, **Ласку** продолжают преследовать неудачи. Второй день начался с душнейшей головоломки **Degrees of Separation**.
@@ -95,7 +95,7 @@ const articles = [
     color: "blue",
     title: "Король мошны вновь пишет разработчикам",
     subtitle: "Тактика",
-    image: "/images/02/korol-moshny.jpg",
+    image: "/images/03/korol-moshny.jpg",
     imageHeight: 247,
     content: `
       Также вчера мы могли наблюдать, что **Факер** не смог пройти игру **Call of Otechestvo Donbass** из-за бага. Связавшись с разработчиком, стример получил ответ: **«А \*\*\* (зачем) вы в это играете вообще?»**.
@@ -157,8 +157,8 @@ type Props = {
 const HpgNews = ({ articleNumbers }: Props) => (
   <HpgLayout
     date="03.02.2021"
-    number="2"
-    map="/images/02/map.png"
+    number="3"
+    map="/images/03/map.png"
     statistics={statistics}
     articleNumbers={articleNumbers}
   >
