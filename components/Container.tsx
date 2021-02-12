@@ -79,7 +79,7 @@ const GithubButton = styled.a`
   position: absolute;
   top: 0;
   right: 0;
-  display: flex;
+  display: none;
   padding: 4px;
   justify-content: flex-end;
   height: 56px;
@@ -87,6 +87,10 @@ const GithubButton = styled.a`
   color: var(--color-gray);
   background-color: #171717;
   clip-path: polygon(0 0, 100% 0, 100% 100%);
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
 `;
 const StyledGithubIcon = styled(GithubIcon)`
   display: block;
