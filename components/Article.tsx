@@ -1,20 +1,7 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
 import ArticleNeon from "./ArticleNeon";
-
-type ArticleColor = "yellow" | "blue" | "white" | "red";
-type ArticleVariant = "default" | "neon";
-
-export type ArticleType = {
-  title?: string;
-  subtitle: string;
-  image?: string;
-  imageHeight?: number;
-  imageWidth?: number;
-  content?: string;
-  color?: ArticleColor;
-  variant?: ArticleVariant;
-};
+import type { ArticleType, ArticleColor, ArticleVariant } from "../types";
 
 type Props = {
   children?: React.ReactNode;

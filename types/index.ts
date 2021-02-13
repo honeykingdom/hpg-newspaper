@@ -1,5 +1,16 @@
-import { ArticleType } from "../components/Article";
-import { StatisticItem } from "../components/HpgLayout";
+export type ArticleColor = "yellow" | "blue" | "white" | "red";
+export type ArticleVariant = "default" | "neon";
+
+export type ArticleType = {
+  title?: string;
+  subtitle: string;
+  image?: string;
+  imageHeight?: number;
+  imageWidth?: number;
+  content?: string;
+  color?: ArticleColor;
+  variant?: ArticleVariant;
+};
 
 export type HpgLayoutProps = {
   date: string;
@@ -8,4 +19,21 @@ export type HpgLayoutProps = {
   statistics: StatisticItem[];
   articles: ArticleType[];
   articleNumbers: string[];
+  layout: string;
+};
+
+export type PlayerName =
+  | "browjey"
+  | "unclebjorn"
+  | "mistafaker"
+  | "lasqa"
+  | "melharucos"
+  | "segall";
+
+export type StatisticItem = {
+  name: PlayerName;
+  time: string;
+  level: string;
+  points: string;
+  partner: string;
 };

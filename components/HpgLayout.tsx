@@ -5,15 +5,7 @@ import Header from "./Header";
 import Heading from "./Heading";
 import StatisticCard from "./StatisticCard";
 import Map from "./Map";
-import type { PlayerName } from "./StatisticCard";
-
-export type StatisticItem = {
-  name: PlayerName;
-  time: string;
-  level: string;
-  points: string;
-  partner: string;
-};
+import type { StatisticItem } from "../types";
 
 type Props = {
   children: React.ReactNode;

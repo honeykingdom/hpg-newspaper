@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import type { PlayerName } from "../types";
 
 const StatisticCardRoot = styled.div<{ color: string }>`
   position: relative;
@@ -48,7 +49,7 @@ const ImageWrapper = styled.div`
   right: 16px;
   width: 140px;
   height: 90px;
-  padding-left: 1px;
+  padding: 1px;
 `;
 const Image = styled.img`
   display: block;
@@ -97,14 +98,6 @@ const players = {
     color: "#a17aff",
   },
 } as const;
-
-export type PlayerName =
-  | "browjey"
-  | "unclebjorn"
-  | "mistafaker"
-  | "lasqa"
-  | "melharucos"
-  | "segall";
 
 type Props = {
   name: PlayerName;
