@@ -25,6 +25,10 @@ const Inner = styled.span`
   display: inline-flex;
   padding: 4px 8px;
   background-color: #010101;
+
+  p {
+    margin: 0;
+  }
 `;
 
 type Props = {
