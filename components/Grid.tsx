@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -20,7 +21,19 @@ const Grid = ({ children, container, item }: Props) => {
   }
 
   if (item) {
-    return <Item>{children}</Item>;
+    return (
+      <Item>
+        {React.Children.map(
+          children,
+          (
+            child: React.ReactElement<
+              any,
+              string | React.JSXElementConstructor<any>
+            >
+          ) => React.cloneElement(child, { imageWidth: 384 })
+        )}
+      </Item>
+    );
   }
 
   return null;
