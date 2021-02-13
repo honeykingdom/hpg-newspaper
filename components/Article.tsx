@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
 import MDX from "@mdx-js/runtime";
+import ArticleNeon from "./ArticleNeon";
 
 type ArticleColor = "yellow" | "blue" | "white" | "red";
 type ArticleVariant = "default" | "neon";
 
-type Props = {
-  children?: React.ReactNode;
+export type ArticleType = {
   title?: string;
   subtitle: string;
   image?: string;
@@ -15,6 +15,10 @@ type Props = {
   color?: ArticleColor;
   variant?: ArticleVariant;
 };
+
+type Props = {
+  children?: React.ReactNode;
+} & ArticleType;
 
 const bgColorsMap = {
   yellow: "var(--color-yellow)",
@@ -51,40 +55,22 @@ const Line = ({ style, className }: LineProps) => (
   </svg>
 );
 
-const ArticleRoot = styled.article<{ variant: ArticleVariant }>`
+const ArticleRoot = styled.article`
   position: relative;
   margin-bottom: 32px;
-  color: ${(p) => (p.variant === "default" ? "inherit" : "var(--color-blue)")};
-  background-color: ${(p) => (p.variant === "default" ? "#171717" : "#010101")};
-  border: ${(p) =>
-    p.variant === "neon" ? "2px solid var(--color-blue)" : "none"};
+  background-color: #171717;
   clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px);
   overflow: hidden;
-
-  ${(p) =>
-    p.variant === "neon" &&
-    css`
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 16px;
-        height: 16px;
-        background-color: var(--color-blue);
-        clip-path: polygon(15px 0, 0 15px, 0 0);
-      }
-    `};
 `;
 const Header = styled.header<{ color: ArticleColor }>`
-  padding-top: 28px;
+  padding-top: 32px;
   overflow: hidden;
   color: ${(p) => colorsMap[p.color]};
   background-color: ${(p) => bgColorsMap[p.color]};
 `;
-const Subtitle = styled.span<{ variant: ArticleVariant }>`
+const Subtitle = styled.span`
   position: relative;
-  margin-bottom: ${(p) => (p.variant === "default" ? "28px" : "0")};
+  margin-bottom: 32px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -141,17 +127,12 @@ const ImageBottomLine = styled(Line)<{ color: ArticleColor }>`
   transform: scaleY(-1);
   fill: ${(p) => bgColorsMap[p.color]};
 `;
-type ContentProps = {
-  variant: ArticleVariant;
-  color: ArticleColor;
-  hasImage: boolean;
-};
-const Content = styled.div<ContentProps>`
+const Content = styled.div<{ color: ArticleColor; hasImage: boolean }>`
   padding: 0 24px;
   padding-bottom: 24px;
   padding-top: ${(p) => (p.hasImage ? "8px" : "0")};
   line-height: 1.5;
-  font-size: ${(p) => (p.variant === "default" ? "16px" : "18px")};
+  font-size: 16px;
 
   h1,
   h2 {
@@ -210,10 +191,14 @@ const Article = ({
   const hasContent = content || children;
   const hasImage = !!image;
 
+  if (variant === "neon") {
+    return <ArticleNeon title={title} subtitle={subtitle} content={content} />;
+  }
+
   return (
-    <ArticleRoot variant={variant}>
+    <ArticleRoot>
       <Header color={color}>
-        <Subtitle variant={variant}>{subtitle}</Subtitle>
+        <Subtitle>{subtitle}</Subtitle>
         {title && <Title>{title}</Title>}
         {image && (
           <HeaderImageWrapper>
@@ -236,7 +221,7 @@ const Article = ({
         />
       )}
       {hasContent && (
-        <Content variant={variant} color={color} hasImage={hasImage}>
+        <Content color={color} hasImage={hasImage}>
           {content ? <MDX>{content}</MDX> : children}
         </Content>
       )}
