@@ -59,7 +59,10 @@ const getArticlesFromMd = async (filename) => {
     const m = CONTENT_REGEX.exec(rawArticle);
 
     if (m) {
-      content = m[1].trim();
+      content = m[1]
+        .trim()
+        .replace(/<\.\.\.>/g, "&lt;...&gt;")
+        .replace(/<3/g, "&lt;3");
     }
 
     return {
