@@ -194,7 +194,7 @@ const HpgNews = ({ articleNumbers }: Props) => (
   <HpgLayout
     date="13.02.2021"
     number="10"
-    map="public/images/10/map.png"
+    map="/images/10/map.png"
     statistics={statistics}
     articleNumbers={articleNumbers}
   >
