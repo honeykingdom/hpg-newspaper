@@ -166,12 +166,12 @@ const HpgNews = ({ articleNumbers }: Props) => (
     <Article {...articles[0]} />
     <Grid container>
       <Grid item>
-        <Article {...articles[1]} imageWidth={384} />
-        <Article {...articles[2]} imageWidth={384} />
+        <Article {...articles[1]} />
+        <Article {...articles[2]} />
       </Grid>
       <Grid item>
-        <Article {...articles[3]} imageWidth={384} />
-        <Article {...articles[4]} imageWidth={384} />
+        <Article {...articles[3]} />
+        <Article {...articles[4]} />
       </Grid>
     </Grid>
   </HpgLayout>

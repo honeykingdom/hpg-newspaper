@@ -180,14 +180,14 @@ const HpgNews = ({ articleNumbers }: Props) => (
     <Heading>Главное</Heading>
     <Grid container>
       <Grid item>
-        <Article {...articles[1]} imageWidth={384} />
-        <Article {...articles[2]} imageWidth={384} />
-        <Article {...articles[3]} imageWidth={384} />
+        <Article {...articles[1]} />
+        <Article {...articles[2]} />
+        <Article {...articles[3]} />
       </Grid>
       <Grid item>
-        <Article {...articles[4]} imageWidth={384} />
-        <Article {...articles[5]} imageWidth={384} />
-        <Article {...articles[6]} imageWidth={384} />
+        <Article {...articles[4]} />
+        <Article {...articles[5]} />
+        <Article {...articles[6]} />
       </Grid>
     </Grid>
     <Article {...articles[7]} />
