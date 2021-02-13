@@ -48,7 +48,7 @@ const ImageWrapper = styled.div`
   right: 16px;
   width: 140px;
   height: 90px;
-  padding: 2px;
+  padding-left: 1px;
 `;
 const Image = styled.img`
   display: block;
