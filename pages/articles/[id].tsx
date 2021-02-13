@@ -1,3 +1,4 @@
+import { promises as fs } from "fs";
 import { GetStaticPaths, GetStaticProps } from "next";
 import MDX from "@mdx-js/runtime";
 import Grid from "../../components/Grid";
@@ -22,10 +23,13 @@ const HpgNews = ({ articles, layout, ...props }: HpgLayoutProps) => (
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articleNumbers = await getArticleNumbers();
+  const files = await fs.readdir("./text");
+  const pages = files
+    .filter((filename) => filename.endsWith(".md"))
+    .map((filename) => filename.slice(0, -3));
 
   return {
-    paths: articleNumbers.map((number) => ({
+    paths: pages.map((number) => ({
       params: { id: `hpg-${number}` },
     })),
     fallback: false,
