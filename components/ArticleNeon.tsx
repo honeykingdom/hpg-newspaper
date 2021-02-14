@@ -61,13 +61,6 @@ const Content = styled.div`
   padding: 0 24px;
   font-size: 18px;
 
-  /* TODO: remove this */
-  h2 {
-    margin-bottom: 32px;
-    font-family: "Chakra Petch", sans-serif;
-    font-size: 26px;
-  }
-
   & :last-child {
     margin-bottom: 0;
   }
