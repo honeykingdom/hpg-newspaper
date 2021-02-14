@@ -82,8 +82,8 @@ type Props = {
 
 const ArticleNeon = ({ children, title, subtitle, content }: Props) => (
   <ArticleNeonRoot>
-    <Subtitle>{subtitle}</Subtitle>
-    <Title>{title}</Title>
+    <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
+    <Title dangerouslySetInnerHTML={{ __html: title }} />
     <Content>{content ? <MDX>{content}</MDX> : children}</Content>
   </ArticleNeonRoot>
 );

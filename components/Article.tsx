@@ -185,8 +185,8 @@ const Article = ({
   return (
     <ArticleRoot>
       <Header color={color}>
-        <Subtitle>{subtitle}</Subtitle>
-        {title && <Title>{title}</Title>}
+        <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
+        {title && <Title dangerouslySetInnerHTML={{ __html: title }} />}
         {image && (
           <HeaderImageWrapper>
             <ImageTopLine color={color} />
