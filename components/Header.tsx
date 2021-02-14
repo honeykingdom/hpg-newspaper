@@ -5,7 +5,7 @@ import getCurrentArticleIndex from "../utils/getCurrentArticleIndex";
 const HeaderRoot = styled.header`
   padding-top: 16px;
   margin-bottom: 32px;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font-secondary);
 `;
 const Description = styled.div`
   display: flex;

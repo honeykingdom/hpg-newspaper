@@ -32,7 +32,7 @@ const Subtitle = styled.div`
   padding-left: 96px; // 24+48+24
   padding-right: 24px;
   margin-bottom: 32px;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font-secondary);
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
@@ -55,7 +55,7 @@ const Title = styled.div`
   margin-bottom: 32px;
   font-size: 26px;
   line-height: 34px;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font-secondary);
   font-weight: bold;
 `;
 const Content = styled.div`

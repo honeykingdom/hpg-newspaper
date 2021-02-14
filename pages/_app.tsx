@@ -15,6 +15,9 @@ const GlobalStyle = createGlobalStyle`
     --color-blue: #02d7f2;
     --color-red: #fd0130;
     --color-gray: #dbdbdb;
+
+    --font-primary: Inter, sans-serif;
+    --font-secondary: "Chakra Petch", sans-serif;
   }
 
   * {
@@ -26,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     background-color: #101010;
     color: var(--color-gray);
-    font-family: Inter, sans-serif;
+    font-family: var(--font-primary);
   }
 `;
 

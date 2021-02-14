@@ -64,7 +64,7 @@ const Subtitle = styled.span`
   justify-content: flex-end;
   padding-left: 96px; // 24+48+24
   padding-right: 24px;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font-secondary);
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
@@ -87,7 +87,7 @@ const Title = styled.div`
   margin-bottom: 20px;
   font-size: 36px;
   font-weight: bold;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font-secondary);
   line-height: 48px;
 `;
 const HeaderImageWrapper = styled.div`
@@ -124,7 +124,7 @@ const Content = styled.div<{ color: ArticleColor; hasImage: boolean }>`
 
   h1,
   h2 {
-    font-family: "Chakra Petch", sans-serif;
+    font-family: var(--font-secondary);
   }
 
   p {

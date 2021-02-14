@@ -7,7 +7,7 @@ const StatisticCardRoot = styled.div<{ color: string }>`
   margin-bottom: 32px;
   height: 200px;
   color: var(--color-blue);
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font-secondary);
   background-color: var(--color-black);
   border: 2px solid var(--color-blue);
   border-left-width: 16px;
