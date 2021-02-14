@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
 import ArticleNeon from "./ArticleNeon";
-import type { ArticleType, ArticleColor, ArticleVariant } from "../types";
+import type { ArticleType, ArticleColor } from "../types";
+import Emote from "./Emote";
 
 type Props = {
   children?: React.ReactNode;
@@ -164,6 +165,12 @@ const BottomLine = styled(Line)<{ color: ArticleColor }>`
   transform: scaleY(-1);
 `;
 
+export type ComponentDictionary = {
+  [name: string]: React.ComponentType<any>;
+};
+
+const components: ComponentDictionary = { Emote };
+
 const Article = ({
   children,
   title,
@@ -179,7 +186,14 @@ const Article = ({
   const hasImage = !!image;
 
   if (variant === "neon") {
-    return <ArticleNeon title={title} subtitle={subtitle} content={content} />;
+    return (
+      <ArticleNeon
+        title={title}
+        subtitle={subtitle}
+        content={content}
+        components={components}
+      />
+    );
   }
 
   return (
@@ -209,7 +223,7 @@ const Article = ({
       )}
       {hasContent && (
         <Content color={color} hasImage={hasImage}>
-          {content ? <MDX>{content}</MDX> : children}
+          {content ? <MDX components={components}>{content}</MDX> : children}
         </Content>
       )}
       {variant === "default" && hasContent && <BottomLine color={color} />}

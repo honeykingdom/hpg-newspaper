@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
+import type { ComponentDictionary } from "./Article";
 
 const ArticleNeonRoot = styled.article`
   position: relative;
@@ -71,13 +72,22 @@ type Props = {
   title: string;
   subtitle: string;
   content?: string;
+  components: ComponentDictionary;
 };
 
-const ArticleNeon = ({ children, title, subtitle, content }: Props) => (
+const ArticleNeon = ({
+  children,
+  title,
+  subtitle,
+  content,
+  components,
+}: Props) => (
   <ArticleNeonRoot>
     <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
     <Title dangerouslySetInnerHTML={{ __html: title }} />
-    <Content>{content ? <MDX>{content}</MDX> : children}</Content>
+    <Content>
+      {content ? <MDX components={components}>{content}</MDX> : children}
+    </Content>
   </ArticleNeonRoot>
 );
 
