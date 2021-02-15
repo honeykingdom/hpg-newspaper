@@ -72,11 +72,14 @@ const Logo = styled.img.attrs({
   alt: "HPG Newspaper",
 })`
   display: block;
+  margin: 0 auto;
   width: 100%;
   max-height: 200px;
   object-fit: contain;
+  aspect-ratio: 6 / 2;
 
   @media (min-width: 864px) {
+    width: 600px;
     height: 200px;
   }
 `;
