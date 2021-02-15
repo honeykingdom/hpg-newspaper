@@ -17,6 +17,11 @@ const GlobalStyle = createGlobalStyle`
 
     --font-primary: Inter, sans-serif;
     --font-secondary: "Chakra Petch", sans-serif;
+
+    --padding-mobile: 16px;
+    --padding-desktop: 24px;
+
+    --subtitle-hr-width: 48px;
   }
 
   * {
