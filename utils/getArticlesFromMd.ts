@@ -1,7 +1,6 @@
-import { promises as fs } from "fs";
 import assert from "assert";
 import yaml from "js-yaml";
-import type { StatisticItem } from "../types";
+import type { ArticleType, StatisticItem } from "../types";
 
 const METADATA_REGEX = /```yaml(.+)```/s;
 const CONTENT_REGEX = /```yaml.+```(.+)/s;
@@ -44,25 +43,23 @@ const parseMetadata = (rawMetadata: string) => {
 const normalizeTitle = (title: string) =>
   title.trim() === "-" ? null : title.trim();
 
-const getArticlesFromMd = async (filename) => {
-  const content = await fs.readFile(filename, "utf8");
-
+const getArticlesFromMd = (content: string) => {
   const [rawMetadata, ...rawArticles] = content.split("\n## ");
 
   const metadata = parseMetadata(rawMetadata);
 
-  const articles = rawArticles.map((rawArticle) => {
+  const articles = rawArticles.map<ArticleType>((rawArticle) => {
     const lines = rawArticle.split("\n");
 
     const title = normalizeTitle(lines[0]);
     const subtitleRaw = lines.find((line) => line.startsWith("### "));
 
-    assert(subtitleRaw, filename);
+    assert(subtitleRaw);
 
     const subtitle = normalizeTitle(subtitleRaw.slice(4));
     const metadata = parseYaml(getRawMetadata(rawArticle));
 
-    assert(typeof metadata === "object", filename);
+    assert(typeof metadata === "object");
 
     let content: null | string = null;
 
