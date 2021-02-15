@@ -39,12 +39,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<HpgLayoutProps> = async ({
   params,
 }) => {
-  const filename = `./text/${params.id.slice(4)}.md`;
+  const [content, articleNumbers] = await Promise.all([
+    fs.readFile(`./text/${params.id.slice(4)}.md`, "utf8"),
+    getArticleNumbers(),
+  ]);
 
   return {
     props: {
-      articleNumbers: await getArticleNumbers(),
-      ...(await getArticlesFromMd(filename)),
+      articleNumbers,
+      ...getArticlesFromMd(content),
     },
   };
 };
