@@ -41,12 +41,15 @@ const StatisticCardRoot = styled.div<{ color: string }>`
 `;
 const Name = styled.div`
   margin-bottom: 8px;
-  width: 180px;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 2px;
   line-height: 1.5;
+
+  @media (min-width: 420px) {
+    width: 180px;
+  }
 `;
 const ImageWrapper = styled.div`
   position: relative;
