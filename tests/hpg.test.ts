@@ -4,10 +4,11 @@ import getArticlesFromMd from "../utils/getArticlesFromMd";
 describe("HPG Pages", () => {
   test("syntax in md files", async () => {
     const files = await fs.readdir("./text/");
-    const mdFiles = files.filter((file) => file.endsWith(".md"));
+    const mdFileNames = files.filter((filename) => filename.endsWith(".md"));
+    const mdFiles = await Promise.all(
+      mdFileNames.map((filename) => fs.readFile(`./text/${filename}`, "utf8"))
+    );
 
-    for (const mdFile of mdFiles) {
-      await getArticlesFromMd(`./text/${mdFile}`);
-    }
+    mdFiles.forEach((content) => getArticlesFromMd(content));
   });
 });
