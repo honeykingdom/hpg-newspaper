@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import type { PlayerName } from "../types";
+import ImageBorder from "../public/images/statistic-image-border.svg";
 
 const StatisticCardRoot = styled.div<{ color: string }>`
   position: relative;
@@ -106,12 +107,6 @@ type Props = {
   points: string;
   partner: string;
 };
-
-const ImageBorder = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 90" {...props}>
-    <path d="M15 0L0 14v8l4 2v19l-4 2v31l15 14h12l2-4h82l2 4h12l15-14V14L125 0h-14l-2 4H86l-2-4H15zm2 3h65l2 4h27l2-4h10l14 13v58l-14 13h-8l-2-4H27l-2 4h-8L3 74V48l4-2V21l-4-2v-3L17 3z" />
-  </svg>
-);
 
 const StyledImageBorder = styled(ImageBorder)`
   position: absolute;
