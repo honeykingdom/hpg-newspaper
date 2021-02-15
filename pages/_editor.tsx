@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
-import { useRouter } from "next/router";
 import Grid from "../components/Grid";
 import Article from "../components/Article";
 import Heading from "../components/Heading";
@@ -38,11 +37,13 @@ const Error = styled.pre`
 `;
 
 const Editor = () => {
-  const router = useRouter();
   const [mdDocument, setMdDocument] = useState("");
   const [data, setData] = useState<HpgLayoutProps>(null);
   const [error, setError] = useState("");
-  const hackmdId = router.query.hackmdId as string;
+  const urlParams = new URLSearchParams(
+    process.browser ? window.location.search : ""
+  );
+  const hackmdId = urlParams.get("hackmdId");
 
   const updateMdDocument = async () => {
     const response = await fetch(`https://hackmd.io/${hackmdId}/download`);
