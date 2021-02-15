@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import ReactGA from "react-ga";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import Head from "next/head";
 
 if (process.browser) {
   ReactGA.initialize("G-J5S7V75HYZ");
@@ -48,6 +49,10 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <>
+      <Head>
+        <title>HPG Newspaper</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
