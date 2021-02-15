@@ -41,8 +41,8 @@ const Subtitle = styled.span`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-left: 96px; // 24+48+24
-  padding-right: 24px;
+  padding-left: calc(var(--subtitle-hr-width) + var(--padding-mobile) * 2);
+  padding-right: var(--padding-mobile);
   font-family: var(--font-secondary);
   font-size: 12px;
   font-weight: bold;
@@ -51,23 +51,38 @@ const Subtitle = styled.span`
   letter-spacing: 0.2em;
   line-height: 16px;
 
+  @media (min-width: 540px) {
+    padding-left: calc(var(--subtitle-hr-width) + var(--padding-desktop) * 2);
+    padding-right: var(--padding-desktop);
+  }
+
   &:after {
     content: "";
     position: absolute;
     top: 7px;
-    left: 24px;
-    width: 48px;
+    left: var(--padding-mobile);
+    width: var(--subtitle-hr-width);
     height: 2px;
     background-color: currentColor;
+
+    @media (min-width: 540px) {
+      left: var(--padding-desktop);
+    }
   }
 `;
 const Title = styled.div`
-  padding: 0 24px;
+  padding: 0 var(--padding-mobile);
   margin-bottom: 20px;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   font-family: var(--font-secondary);
-  line-height: 48px;
+  line-height: 40px;
+
+  @media (min-width: 540px) {
+    padding: 0 var(--padding-desktop);
+    font-size: 36px;
+    line-height: 48px;
+  }
 `;
 const HeaderImageWrapper = styled.div`
   padding: 6px 0;
@@ -76,8 +91,14 @@ const HeaderImageWrapper = styled.div`
   flex-direction: column;
   background-color: #171717;
 `;
-const HeaderImage = styled.img`
+const HeaderImage = styled.img<{ $height?: number; $width?: number }>`
   display: block;
+  object-fit: contain;
+
+  @media (min-width: 864px) {
+    width: ${(p) => p.$width}px;
+    height: ${(p) => p.$height}px;
+  }
 `;
 const ImageTopLine = styled(Line)<{ color: ArticleColor }>`
   position: absolute;
@@ -95,11 +116,17 @@ const ImageBottomLine = styled(Line)<{ color: ArticleColor }>`
   fill: ${(p) => bgColorsMap[p.color]};
 `;
 const Content = styled.div<{ color: ArticleColor; hasImage: boolean }>`
-  padding: 0 24px;
+  padding-left: var(--padding-mobile);
+  padding-right: var(--padding-mobile);
   padding-bottom: 24px;
   padding-top: ${(p) => (p.hasImage ? "8px" : "0")};
   line-height: 1.5;
   font-size: 16px;
+
+  @media (min-width: 540px) {
+    padding-left: var(--padding-desktop);
+    padding-right: var(--padding-desktop);
+  }
 
   h1,
   h2 {
@@ -185,9 +212,9 @@ const Article = ({
             <ImageTopLine color={color} />
             <HeaderImage
               src={image}
-              alt=""
-              height={imageHeight}
-              width={imageWidth}
+              alt={title}
+              $height={imageHeight}
+              $width={imageWidth}
             />
             <ImageBottomLine color={color} />
           </HeaderImageWrapper>

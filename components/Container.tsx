@@ -14,8 +14,15 @@ const ContainerRoot = styled.div`
 `;
 const Inner = styled.div`
   margin: 0 auto;
-  padding: 0 32px;
-  width: 864px;
+  padding: 0 16px;
+
+  @media (min-width: 540px) {
+    padding: 0 32px;
+  }
+
+  @media (min-width: 864px) {
+    width: 864px;
+  }
 `;
 const articleButton = css`
   display: none;

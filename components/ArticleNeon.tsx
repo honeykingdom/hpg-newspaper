@@ -5,13 +5,18 @@ import type { ComponentDictionary } from "./Article";
 const ArticleNeonRoot = styled.article`
   position: relative;
   margin-bottom: 32px;
-  padding-top: 32px;
-  padding-bottom: 40px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   color: var(--color-blue);
   background-color: var(--color-black);
   border: 2px solid var(--color-blue);
   clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px);
   overflow: hidden;
+
+  @media (min-width: 540px) {
+    padding-top: 32px;
+    padding-bottom: 40px;
+  }
 
   &:before {
     content: "";
@@ -29,8 +34,8 @@ const Subtitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-left: 96px; // 24+48+24
-  padding-right: 24px;
+  padding-left: calc(var(--subtitle-hr-width) + var(--padding-mobile) * 2);
+  padding-right: var(--padding-mobile);
   margin-bottom: 32px;
   font-family: var(--font-secondary);
   font-size: 12px;
@@ -40,30 +45,47 @@ const Subtitle = styled.div`
   letter-spacing: 0.2em;
   line-height: 16px;
 
+  @media (min-width: 540px) {
+    padding-left: calc(var(--subtitle-hr-width) + var(--padding-desktop) * 2);
+    padding-right: var(--padding-desktop);
+  }
+
   &:after {
     content: "";
     position: absolute;
     top: 7px;
-    left: 24px;
+    left: var(--padding-mobile);
     width: 48px;
     height: 2px;
     background-color: currentColor;
+
+    @media (min-width: 540px) {
+      left: var(--padding-desktop);
+    }
   }
 `;
 const Title = styled.div`
-  padding: 0 24px;
+  padding: 0 var(--padding-mobile);
   margin-bottom: 32px;
   font-size: 26px;
   line-height: 34px;
   font-family: var(--font-secondary);
   font-weight: bold;
+
+  @media (min-width: 540px) {
+    padding: 0 var(--padding-desktop);
+  }
 `;
 const Content = styled.div`
-  padding: 0 24px;
+  padding: 0 var(--padding-mobile);
   font-size: 18px;
 
   & :last-child {
     margin-bottom: 0;
+  }
+
+  @media (min-width: 540px) {
+    padding: 0 var(--padding-desktop);
   }
 `;
 

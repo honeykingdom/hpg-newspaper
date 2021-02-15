@@ -21,12 +21,14 @@ const Dropdown = styled.ul`
   position: absolute;
   top: 100%;
   right: 0;
+  z-index: 1;
   display: none;
   margin: 0;
   padding: 8px 16px;
   list-style: none;
   text-align: center;
   border: 2px solid var(--color-blue);
+  background-color: #101010;
 `;
 const ArticleNumber = styled.div`
   position: relative;
@@ -65,9 +67,18 @@ const Item = styled.li`
     }
   }
 `;
-const Logo = styled.div`
-  height: 200px;
-  background: url("/images/logo.png") center no-repeat;
+const Logo = styled.img.attrs({
+  src: "/images/logo.png",
+  alt: "HPG Newspaper",
+})`
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+
+  @media (min-width: 864px) {
+    height: 200px;
+  }
 `;
 
 const normalizeArticleNumber = (number) =>

@@ -6,13 +6,17 @@ const StatisticCardRoot = styled.div<{ color: string }>`
   position: relative;
   padding: 16px;
   margin-bottom: 32px;
-  height: 200px;
   color: var(--color-blue);
   font-family: var(--font-secondary);
   background-color: var(--color-black);
   border: 2px solid var(--color-blue);
   border-left-width: 16px;
   clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px);
+
+  @media (min-width: 420px) {
+    width: 384px;
+    height: 200px;
+  }
 
   &:before {
     content: "";
@@ -45,12 +49,18 @@ const Name = styled.div`
   line-height: 1.5;
 `;
 const ImageWrapper = styled.div`
-  position: absolute;
-  top: 16px;
-  right: 16px;
+  position: relative;
   width: 140px;
   height: 90px;
   padding: 1px;
+  margin-bottom: 8px;
+
+  @media (min-width: 420px) {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    margin-bottom: 0;
+  }
 `;
 const Image = styled.img`
   display: block;
