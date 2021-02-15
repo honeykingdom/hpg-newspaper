@@ -30,8 +30,8 @@ const MapRoot = styled.div`
   );
 
   @media (min-width: 864px) {
-    width: 768px;
-    height: 418px;
+    width: 800px;
+    height: 450px;
   }
 `;
 const Image = styled.img`
