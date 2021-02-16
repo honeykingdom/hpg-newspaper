@@ -1,5 +1,5 @@
 import assert from "assert";
-import yaml from "js-yaml";
+import parseYaml from "./parseYaml";
 import type { ArticleType, StatisticItem } from "../types";
 
 const METADATA_REGEX = /```yaml(.+)```/s;
@@ -13,10 +13,6 @@ const getRawMetadata = (content: string) => {
   return m[1];
 };
 
-const parseYaml = (content: string) => {
-  return yaml.load(content.replace(/\t/g, "  "));
-};
-
 const parseMetadata = (rawMetadata: string) => {
   const parts = rawMetadata.split(/(```)/);
 
@@ -27,7 +23,7 @@ const parseMetadata = (rawMetadata: string) => {
   assert(parts[2].startsWith("yaml"));
   assert(parts[6].startsWith("jsx"));
 
-  const metadata = parseYaml(parts[2].slice(4)) as {
+  const metadata = parseYaml(parts[2].slice(4).replace(/\t/g, "  ")) as {
     date: string;
     map: string;
     statistics: StatisticItem[];
@@ -57,7 +53,7 @@ const getArticlesFromMd = (content: string) => {
     assert(subtitleRaw);
 
     const subtitle = normalizeTitle(subtitleRaw.slice(4));
-    const metadata = parseYaml(getRawMetadata(rawArticle));
+    const metadata = parseYaml(getRawMetadata(rawArticle).replace(/\t/g, "  "));
 
     assert(typeof metadata === "object");
 
