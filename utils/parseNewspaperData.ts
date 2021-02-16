@@ -44,7 +44,7 @@ const parseNewspaperData = (content: string) => {
 
   const metadata = parseMetadata(rawMetadata);
 
-  const articles = rawArticles.map<ArticleType>((rawArticle) => {
+  const articles = rawArticles.map((rawArticle) => {
     const lines = rawArticle.split("\n");
 
     const title = normalizeTitle(lines[0]);
@@ -53,7 +53,11 @@ const parseNewspaperData = (content: string) => {
     assert(subtitleRaw);
 
     const subtitle = normalizeTitle(subtitleRaw.slice(4));
-    const metadata = parseYaml(getRawMetadata(rawArticle).replace(/\t/g, "  "));
+    const rawMetadata = getRawMetadata(rawArticle);
+
+    assert(rawMetadata);
+
+    const metadata = parseYaml(rawMetadata.replace(/\t/g, "  "));
 
     assert(typeof metadata === "object");
 
@@ -73,7 +77,7 @@ const parseNewspaperData = (content: string) => {
       subtitle,
       content,
       ...metadata,
-    };
+    } as ArticleType;
   });
 
   return { ...metadata, articles };
