@@ -5,10 +5,6 @@ import type { ArticleType, ArticleColor, ComponentDictionary } from "../types";
 import Emote from "./Emote";
 import Line from "../public/images/line.svg";
 
-type Props = {
-  children?: React.ReactNode;
-} & ArticleType;
-
 const bgColorsMap = {
   yellow: "var(--color-yellow)",
   blue: "var(--color-blue)",
@@ -172,6 +168,10 @@ const BottomLine = styled(Line)<{ color: ArticleColor }>`
 `;
 
 const components: ComponentDictionary = { Emote };
+
+type Props = {
+  children?: React.ReactNode;
+} & ArticleType;
 
 const Article = ({
   children,

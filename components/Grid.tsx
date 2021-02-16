@@ -30,14 +30,14 @@ const Grid = ({ children, container, item }: Props) => {
   if (item) {
     return (
       <Item>
-        {React.Children.map(
-          children,
-          (
-            child: React.ReactElement<
+        {React.Children.map(children, (child) =>
+          React.cloneElement(
+            child as React.ReactElement<
               any,
               string | React.JSXElementConstructor<any>
-            >
-          ) => React.cloneElement(child, { imageWidth: 384 })
+            >,
+            { imageWidth: 384 }
+          )
         )}
       </Item>
     );

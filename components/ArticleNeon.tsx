@@ -91,7 +91,7 @@ const Content = styled.div`
 
 type Props = {
   children?: React.ReactNode;
-  title: string;
+  title?: string;
   subtitle: string;
   content?: string;
   components: ComponentDictionary;
@@ -106,7 +106,7 @@ const ArticleNeon = ({
 }: Props) => (
   <ArticleNeonRoot>
     <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
-    <Title dangerouslySetInnerHTML={{ __html: title }} />
+    <Title dangerouslySetInnerHTML={{ __html: title || "" }} />
     <Content>
       {content ? <MDX components={components}>{content}</MDX> : children}
     </Content>

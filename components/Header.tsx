@@ -84,12 +84,12 @@ const Logo = styled.img.attrs({
   }
 `;
 
-const normalizeArticleNumber = (number) =>
+const normalizeArticleNumber = (number: string) =>
   number[0] === "0" ? number.slice(1) : number;
 
 type Props = {
   date?: string;
-  currentNewspaperNumber?: string;
+  currentNewspaperNumber: string;
   newspaperNumbers: string[];
 };
 
