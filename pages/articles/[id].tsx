@@ -7,9 +7,9 @@ import Heading from "../../components/Heading";
 import HpgLayout from "../../components/HpgLayout";
 import getNewspaperNumbers from "../../utils/getNewspaperNumbers";
 import parseNewspaperData from "../../utils/parseNewspaperData";
-import type { HpgLayoutProps } from "../../types";
+import type { ComponentDictionary, HpgLayoutProps } from "../../types";
 
-const components = {
+export const components: ComponentDictionary = {
   Layout: HpgLayout,
   Heading,
   Article,

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
 import ArticleNeon from "./ArticleNeon";
-import type { ArticleType, ArticleColor } from "../types";
+import type { ArticleType, ArticleColor, ComponentDictionary } from "../types";
 import Emote from "./Emote";
 import Line from "../public/images/line.svg";
 
@@ -170,10 +170,6 @@ const BottomLine = styled(Line)<{ color: ArticleColor }>`
   fill: ${(p) => bgColorsMap[p.color]};
   transform: scaleY(-1);
 `;
-
-export type ComponentDictionary = {
-  [name: string]: React.ComponentType<any>;
-};
 
 const components: ComponentDictionary = { Emote };
 

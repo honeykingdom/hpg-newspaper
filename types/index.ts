@@ -1,3 +1,7 @@
+export type ComponentDictionary = {
+  [name: string]: React.ComponentType<any>;
+};
+
 export type ArticleColor = "yellow" | "blue" | "white" | "red";
 export type ArticleVariant = "default" | "neon";
 

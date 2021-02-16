@@ -1,19 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
-import Grid from "../components/Grid";
-import Article from "../components/Article";
-import Heading from "../components/Heading";
-import HpgLayout from "../components/HpgLayout";
 import parseNewspaperData from "../utils/parseNewspaperData";
 import type { HpgLayoutProps } from "../types";
-
-const components = {
-  Layout: HpgLayout,
-  Heading,
-  Article,
-  Grid,
-};
+import { components } from "./articles/[id]";
 
 const UpdateButton = styled.button.attrs({ title: "Обновить" })`
   position: fixed;

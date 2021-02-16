@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
-import type { ComponentDictionary } from "./Article";
+import type { ComponentDictionary } from "../types";
 
 const ArticleNeonRoot = styled.article`
   position: relative;
