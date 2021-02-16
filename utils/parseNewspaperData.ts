@@ -39,7 +39,7 @@ const parseMetadata = (rawMetadata: string) => {
 const normalizeTitle = (title: string) =>
   title.trim() === "-" ? null : title.trim();
 
-const getArticlesFromMd = (content: string) => {
+const parseNewspaperData = (content: string) => {
   const [rawMetadata, ...rawArticles] = content.split("\n## ");
 
   const metadata = parseMetadata(rawMetadata);
@@ -79,4 +79,4 @@ const getArticlesFromMd = (content: string) => {
   return { ...metadata, articles };
 };
 
-export default getArticlesFromMd;
+export default parseNewspaperData;

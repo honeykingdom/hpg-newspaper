@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled, { css } from "styled-components";
-import getCurrentArticleIndex from "../utils/getCurrentArticleIndex";
+import getCurrentNewspaperIndex from "../utils/getCurrentNewspaperIndex";
 import ArrowPrev from "../public/images/arrow-prev.svg";
 import ArrowNext from "../public/images/arrow-next.svg";
 import GithubIcon from "../public/images/github-icon.svg";
@@ -84,24 +84,24 @@ const StyledGithubIcon = styled(GithubIcon)`
 
 type Props = {
   children: React.ReactNode;
-  currentArticleNumber: string;
-  articleNumbers: string[];
+  currentNewspaperNumber: string;
+  newspaperNumbers: string[];
 };
 
 const Container = ({
   children,
-  currentArticleNumber,
-  articleNumbers,
+  currentNewspaperNumber,
+  newspaperNumbers,
 }: Props) => {
-  const currentIndex = getCurrentArticleIndex(
-    articleNumbers,
-    currentArticleNumber
+  const currentIndex = getCurrentNewspaperIndex(
+    newspaperNumbers,
+    currentNewspaperNumber
   );
   const isFirst = currentIndex === 0;
-  const isLast = currentIndex === articleNumbers.length - 1;
+  const isLast = currentIndex === newspaperNumbers.length - 1;
 
-  const prevNumberUrl = `/articles/hpg-${articleNumbers[currentIndex - 1]}`;
-  const nextNumberUrl = `/articles/hpg-${articleNumbers[currentIndex + 1]}`;
+  const prevNumberUrl = `/articles/hpg-${newspaperNumbers[currentIndex - 1]}`;
+  const nextNumberUrl = `/articles/hpg-${newspaperNumbers[currentIndex + 1]}`;
 
   return (
     <ContainerRoot>

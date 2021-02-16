@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import getCurrentArticleIndex from "../utils/getCurrentArticleIndex";
+import getCurrentNewspaperIndex from "../utils/getCurrentNewspaperIndex";
 
 const HeaderRoot = styled.header`
   padding-top: 16px;
@@ -89,24 +89,28 @@ const normalizeArticleNumber = (number) =>
 
 type Props = {
   date?: string;
-  currentArticleNumber?: string;
-  articleNumbers: string[];
+  currentNewspaperNumber?: string;
+  newspaperNumbers: string[];
 };
 
-const Header = ({ date, currentArticleNumber, articleNumbers }: Props) => {
-  const currentIndex = getCurrentArticleIndex(
-    articleNumbers,
-    currentArticleNumber
+const Header = ({ date, currentNewspaperNumber, newspaperNumbers }: Props) => {
+  const currentIndex = getCurrentNewspaperIndex(
+    newspaperNumbers,
+    currentNewspaperNumber
   );
-  const renderedArticles = articleNumbers.filter((_, i) => i !== currentIndex);
+  const renderedArticles = newspaperNumbers.filter(
+    (_, i) => i !== currentIndex
+  );
 
   return (
     <HeaderRoot>
       <Description>
         {date && <span>{date}</span>}
         <ArticleNumber>
-          {currentArticleNumber && (
-            <ArticleNumberText>Выпуск {currentArticleNumber}</ArticleNumberText>
+          {currentNewspaperNumber && (
+            <ArticleNumberText>
+              Выпуск {currentNewspaperNumber}
+            </ArticleNumberText>
           )}
           <Dropdown>
             {renderedArticles.map((n) => (

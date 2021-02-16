@@ -1,5 +1,5 @@
 import { promises as fs } from "fs";
-import getArticlesFromMd from "../utils/getArticlesFromMd";
+import parseNewspaperData from "../utils/parseNewspaperData";
 
 describe("HPG Pages", () => {
   test("syntax in md files", async () => {
@@ -9,6 +9,6 @@ describe("HPG Pages", () => {
       mdFileNames.map((filename) => fs.readFile(`./text/${filename}`, "utf8"))
     );
 
-    mdFiles.forEach((content) => getArticlesFromMd(content));
+    mdFiles.forEach((content) => parseNewspaperData(content));
   });
 });

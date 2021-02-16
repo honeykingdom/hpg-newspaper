@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import type { GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import getArticleNumbers from "../utils/getArticleNumbers";
+import getNewspaperNumbers from "../utils/getNewspaperNumbers";
 
 type Props = {
-  lastArticleNumber: string;
+  lastNewspaperNumber: string;
 };
 
-const Home = ({ lastArticleNumber }: Props) => {
+const Home = ({ lastNewspaperNumber }: Props) => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push(`/articles/hpg-${lastArticleNumber}`);
+    router.push(`/articles/hpg-${lastNewspaperNumber}`);
   });
 
   return null;
@@ -20,11 +20,8 @@ const Home = ({ lastArticleNumber }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const articleNumbers = await getArticleNumbers();
+  const newspaperNumbers = await getNewspaperNumbers();
+  const lastNewspaperNumber = newspaperNumbers[newspaperNumbers.length - 1];
 
-  return {
-    props: {
-      lastArticleNumber: articleNumbers[articleNumbers.length - 1],
-    },
-  };
+  return { props: { lastNewspaperNumber } };
 };

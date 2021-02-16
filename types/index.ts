@@ -18,7 +18,7 @@ export type HpgLayoutProps = {
   map: string;
   statistics: StatisticItem[];
   articles: ArticleType[];
-  articleNumbers: string[];
+  newspaperNumbers: string[];
   layout: string;
 };
 

@@ -5,7 +5,7 @@ import Grid from "../components/Grid";
 import Article from "../components/Article";
 import Heading from "../components/Heading";
 import HpgLayout from "../components/HpgLayout";
-import getArticlesFromMd from "../utils/getArticlesFromMd";
+import parseNewspaperData from "../utils/parseNewspaperData";
 import type { HpgLayoutProps } from "../types";
 
 const components = {
@@ -54,9 +54,9 @@ const Editor = () => {
 
   const updateData = () => {
     try {
-      const result = getArticlesFromMd(mdDocument);
+      const result = parseNewspaperData(mdDocument);
 
-      setData({ ...result, articleNumbers: [] });
+      setData({ ...result, newspaperNumbers: [] });
       setError("");
     } catch (e) {
       setError(e.stack || e.toString());

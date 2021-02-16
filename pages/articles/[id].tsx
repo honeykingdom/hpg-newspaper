@@ -5,8 +5,8 @@ import Grid from "../../components/Grid";
 import Article from "../../components/Article";
 import Heading from "../../components/Heading";
 import HpgLayout from "../../components/HpgLayout";
-import getArticleNumbers from "../../utils/getArticleNumbers";
-import getArticlesFromMd from "../../utils/getArticlesFromMd";
+import getNewspaperNumbers from "../../utils/getNewspaperNumbers";
+import parseNewspaperData from "../../utils/parseNewspaperData";
 import type { HpgLayoutProps } from "../../types";
 
 const components = {
@@ -39,15 +39,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<HpgLayoutProps> = async ({
   params,
 }) => {
-  const [content, articleNumbers] = await Promise.all([
+  const [content, newspaperNumbers] = await Promise.all([
     fs.readFile(`./text/${params.id.slice(4)}.md`, "utf8"),
-    getArticleNumbers(),
+    getNewspaperNumbers(),
   ]);
 
   return {
     props: {
-      articleNumbers,
-      ...getArticlesFromMd(content),
+      newspaperNumbers,
+      ...parseNewspaperData(content),
     },
   };
 };

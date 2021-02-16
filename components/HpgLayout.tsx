@@ -22,7 +22,7 @@ type Props = {
   number: string;
   map: string;
   statistics: StatisticItem[];
-  articleNumbers: string[];
+  newspaperNumbers: string[];
 };
 
 const HpgLayout = ({
@@ -31,17 +31,20 @@ const HpgLayout = ({
   number,
   map,
   statistics,
-  articleNumbers,
+  newspaperNumbers,
 }: Props) => (
   <>
     <Head>
       <title>HPG Newspaper. Выпуск {number}</title>
     </Head>
-    <Container currentArticleNumber={number} articleNumbers={articleNumbers}>
+    <Container
+      currentNewspaperNumber={number}
+      newspaperNumbers={newspaperNumbers}
+    >
       <Header
         date={date}
-        currentArticleNumber={number}
-        articleNumbers={articleNumbers}
+        currentNewspaperNumber={number}
+        newspaperNumbers={newspaperNumbers}
       />
 
       <>{children}</>
