@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import ReactGA from "react-ga";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Head from "next/head";
+import type { AppProps } from "next/app";
 
 if (process.browser) {
   ReactGA.initialize("G-J5S7V75HYZ");
@@ -40,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {};
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     if (process.browser) {
       ReactGA.pageview(window.location.pathname + window.location.search);

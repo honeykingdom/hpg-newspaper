@@ -16,6 +16,10 @@ export const components: ComponentDictionary = {
   Grid,
 };
 
+type Params = {
+  id: string;
+};
+
 const HpgNews = ({ articles, layout, ...props }: HpgLayoutProps) => (
   <MDX components={components} scope={{ articles, props }}>
     {layout}
@@ -36,11 +40,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<HpgLayoutProps> = async ({
+export const getStaticProps: GetStaticProps<HpgLayoutProps, Params> = async ({
   params,
 }) => {
   const [content, newspaperNumbers] = await Promise.all([
-    fs.readFile(`./text/${params.id.slice(4)}.md`, "utf8"),
+    fs.readFile(`./text/${params?.id.slice(4)}.md`, "utf8"),
     getNewspaperNumbers(),
   ]);
 

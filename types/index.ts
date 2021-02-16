@@ -12,7 +12,7 @@ export type ArticleType = {
   imageHeight?: number;
   imageWidth?: number;
   content?: string;
-  color?: ArticleColor;
+  color: ArticleColor;
   variant?: ArticleVariant;
 };
 

@@ -28,7 +28,7 @@ const Error = styled.pre`
 
 const Editor = () => {
   const [mdDocument, setMdDocument] = useState("");
-  const [data, setData] = useState<HpgLayoutProps>(null);
+  const [data, setData] = useState<HpgLayoutProps | null>(null);
   const [error, setError] = useState("");
   const urlParams = new URLSearchParams(
     process.browser ? window.location.search : ""
@@ -64,6 +64,8 @@ const Editor = () => {
   if (!hackmdId) return null;
 
   const renderPage = () => {
+    if (!data) return null;
+
     const { articles, layout, ...props } = data;
 
     return (
@@ -76,7 +78,7 @@ const Editor = () => {
   return (
     <>
       <UpdateButton onClick={updateMdDocument}>🔄</UpdateButton>
-      {error ? <Error>{error}</Error> : data && renderPage()}
+      {error ? <Error>{error}</Error> : renderPage()}
     </>
   );
 };
