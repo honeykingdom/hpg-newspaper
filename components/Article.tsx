@@ -1,8 +1,11 @@
+import { useState } from "react";
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
-import ArticleNeon from "./ArticleNeon";
 import type { ArticleType, ArticleColor, ComponentDictionary } from "../types";
+import ArticleNeon from "./ArticleNeon";
 import Emote from "./Emote";
+import VideoModal from "./VideoModal";
+import getTwitchClipEmbedSrc from "../utils/getTwitchClipEmbedSrc";
 import Line from "../public/images/line.svg";
 
 const bgColorsMap = {
@@ -158,6 +161,11 @@ const Content = styled.div<{ color: ArticleColor; hasImage: boolean }>`
     }
   }
 
+  a {
+    text-decoration: none;
+    color: var(--color-blue);
+  }
+
   & :last-child {
     margin-bottom: 0;
   }
@@ -184,8 +192,24 @@ const Article = ({
   color,
   variant = "default",
 }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("");
+
   const hasContent = content || children;
   const hasImage = !!image;
+
+  // TODO: React.MouseEvent<Element, MouseEvent>
+  const handleContentClick = (e: any) => {
+    if (e.target.nodeName === "A") {
+      const src = getTwitchClipEmbedSrc(e.target.href);
+
+      if (src) {
+        e.preventDefault();
+        setIsOpen(true);
+        setVideoSrc(src);
+      }
+    }
+  };
 
   if (variant === "neon") {
     return (
@@ -199,37 +223,51 @@ const Article = ({
   }
 
   return (
-    <ArticleRoot>
-      <Header color={color}>
-        <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
-        {title && <Title dangerouslySetInnerHTML={{ __html: title }} />}
-        {image && (
-          <HeaderImageWrapper>
-            <ImageTopLine color={color} />
-            <HeaderImage
-              src={image}
-              alt={title}
-              $height={imageHeight}
-              $width={imageWidth}
-            />
-            <ImageBottomLine color={color} />
-          </HeaderImageWrapper>
+    <>
+      <ArticleRoot>
+        <Header color={color}>
+          <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
+          {title && <Title dangerouslySetInnerHTML={{ __html: title }} />}
+          {image && (
+            <HeaderImageWrapper>
+              <ImageTopLine color={color} />
+              <HeaderImage
+                src={image}
+                alt={title}
+                $height={imageHeight}
+                $width={imageWidth}
+              />
+              <ImageBottomLine color={color} />
+            </HeaderImageWrapper>
+          )}
+        </Header>
+        {variant === "default" && !hasImage && (
+          <Line
+            style={{
+              fill: bgColorsMap[color],
+            }}
+          />
         )}
-      </Header>
-      {variant === "default" && !hasImage && (
-        <Line
-          style={{
-            fill: bgColorsMap[color],
-          }}
+        {hasContent && (
+          <Content
+            color={color}
+            hasImage={hasImage}
+            onClick={handleContentClick}
+          >
+            {content ? <MDX components={components}>{content}</MDX> : children}
+          </Content>
+        )}
+        {variant === "default" && hasContent && <BottomLine color={color} />}
+      </ArticleRoot>
+
+      {isOpen && (
+        <VideoModal
+          isOpen={isOpen}
+          src={videoSrc}
+          onClose={() => setIsOpen(false)}
         />
       )}
-      {hasContent && (
-        <Content color={color} hasImage={hasImage}>
-          {content ? <MDX components={components}>{content}</MDX> : children}
-        </Content>
-      )}
-      {variant === "default" && hasContent && <BottomLine color={color} />}
-    </ArticleRoot>
+    </>
   );
 };
 
