@@ -31,7 +31,7 @@ http://hpg-newspaper.netlify.app
 
 Абзац 3. Абзацы отделяются переносом строки.
 
-Абзац 4. Пример ссылки: [ссылка](https://www.google.com)
+Абзац 4. Пример ссылки: [ссылка](https://clips.twitch.tv/AnnoyingAliveNightingaleTheThing)
 
 Абзац 5. Пример картинки в тексте: ![описание картинки](https://i.imgur.com/pDLMRbi.png)
 ```
