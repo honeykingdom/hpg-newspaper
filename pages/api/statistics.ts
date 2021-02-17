@@ -21,6 +21,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         "Отсутствует",
     })) as any[];
     const statistics = players.map((_, i) => players[ORDER[i]]);
+
+    statistics[2].name = "mistafaker";
+
     const yamlResult = yaml.dump({ statistics }, { quotingType: '"' });
 
     res.status(200);
