@@ -47,7 +47,7 @@ const HpgLayout = ({
         newspaperNumbers={newspaperNumbers}
       />
 
-      <>{children}</>
+      {children}
 
       <Heading>Статистика участников</Heading>
       <Grid container>
