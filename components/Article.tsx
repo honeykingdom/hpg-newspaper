@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
 import type { ArticleType, ArticleColor, ComponentDictionary } from "../types";
 import ArticleNeon from "./ArticleNeon";
-import Emote from "./Emote";
+import Icon from "./Icon";
 import VideoModal from "./VideoModal";
 import getTwitchClipEmbedSrc from "../utils/getTwitchClipEmbedSrc";
 import Line from "../public/images/line.svg";
@@ -175,7 +175,7 @@ const BottomLine = styled(Line)<{ color: ArticleColor }>`
   transform: scaleY(-1);
 `;
 
-const components: ComponentDictionary = { Emote };
+const components: ComponentDictionary = { Icon };
 
 type Props = {
   children?: React.ReactNode;
