@@ -23,5 +23,10 @@
     "1x": "https://cdn.frankerfacez.com/emoticon/165784/1",
     "2x": "https://cdn.frankerfacez.com/emoticon/165784/2",
     "4x": "https://cdn.frankerfacez.com/emoticon/165784/4"
+  },
+  "badge:vip": {
+    "1x": "https://static-cdn.jtvnw.net/badges/v1/b817aba4-fad8-49e2-b88a-7cc744dfa6ec/1",
+    "2x": "https://static-cdn.jtvnw.net/badges/v1/b817aba4-fad8-49e2-b88a-7cc744dfa6ec/2",
+    "4x": "https://static-cdn.jtvnw.net/badges/v1/b817aba4-fad8-49e2-b88a-7cc744dfa6ec/3"
   }
 }
