@@ -5,7 +5,7 @@ import parseNewspaperData from "../utils/parseNewspaperData";
 import type { HpgLayoutProps } from "../types";
 import { components } from "./[id]";
 
-const UpdateButton = styled.button.attrs({ title: "Обновить" })`
+const UpdateButton = styled.button`
   position: fixed;
   top: 32px;
   left: 32px;
@@ -77,7 +77,12 @@ const Editor = () => {
 
   return (
     <>
-      <UpdateButton onClick={updateMdDocument}>🔄</UpdateButton>
+      <UpdateButton
+        onClick={updateMdDocument}
+        title="Обновить (Ctrl+F5 если не работает)"
+      >
+        🔄
+      </UpdateButton>
       {error ? <Error>{error}</Error> : renderPage()}
     </>
   );
