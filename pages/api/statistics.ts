@@ -24,7 +24,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const yamlResult = yaml.dump({ statistics }, { quotingType: '"' });
 
     res.status(200);
-    res.setHeader("Content-Type", "text/text; charset=utf-8");
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.write(yamlResult);
     res.end();
   } catch (e) {
