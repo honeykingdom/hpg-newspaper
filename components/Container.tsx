@@ -100,8 +100,9 @@ const Container = ({
   const isFirst = currentIndex === 0;
   const isLast = currentIndex === newspaperNumbers.length - 1;
 
-  const prevNumberUrl = newspaperNumbers[currentIndex - 1];
-  const nextNumberUrl = newspaperNumbers[currentIndex + 1];
+  // TODO: check if it really string
+  const prevNumberUrl = `${newspaperNumbers[currentIndex - 1]}`;
+  const nextNumberUrl = `${newspaperNumbers[currentIndex + 1]}`;
 
   return (
     <ContainerRoot>
