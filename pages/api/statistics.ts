@@ -20,14 +20,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         player.mates.list.map((mate: any) => mate.name.trim()).join(", ") ||
         "Отсутствует",
     })) as any[];
-
     const statistics = players.map((_, i) => players[ORDER[i]]);
-
     const yamlResult = yaml.dump({ statistics }, { quotingType: '"' });
-    console.log(yamlResult);
 
     res.status(200);
-    res.setHeader("Content-Type", "text/vnd.yaml; charset=utf-8");
+    res.setHeader("Content-Type", "text/text; charset=utf-8");
     res.write(yamlResult);
     res.end();
   } catch (e) {
