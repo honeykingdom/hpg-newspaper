@@ -11,7 +11,7 @@ const Home = ({ lastNewspaperNumber }: Props) => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push(`/articles/hpg-${lastNewspaperNumber}`);
+    router.push(lastNewspaperNumber);
   });
 
   return null;

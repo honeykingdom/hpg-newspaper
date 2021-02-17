@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
 import parseNewspaperData from "../utils/parseNewspaperData";
 import type { HpgLayoutProps } from "../types";
-import { components } from "./articles/[id]";
+import { components } from "./[id]";
 
 const UpdateButton = styled.button.attrs({ title: "Обновить" })`
   position: fixed;

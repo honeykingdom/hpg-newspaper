@@ -1,13 +1,13 @@
 import { promises as fs } from "fs";
 import { GetStaticPaths, GetStaticProps } from "next";
 import MDX from "@mdx-js/runtime";
-import Grid from "../../components/Grid";
-import Article from "../../components/Article";
-import Heading from "../../components/Heading";
-import HpgLayout from "../../components/HpgLayout";
-import getNewspaperNumbers from "../../utils/getNewspaperNumbers";
-import parseNewspaperData from "../../utils/parseNewspaperData";
-import type { ComponentDictionary, HpgLayoutProps } from "../../types";
+import Grid from "../components/Grid";
+import Article from "../components/Article";
+import Heading from "../components/Heading";
+import HpgLayout from "../components/HpgLayout";
+import getNewspaperNumbers from "../utils/getNewspaperNumbers";
+import parseNewspaperData from "../utils/parseNewspaperData";
+import type { ComponentDictionary, HpgLayoutProps } from "../types";
 
 export const components: ComponentDictionary = {
   Layout: HpgLayout,
@@ -33,8 +33,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .map((filename) => filename.slice(0, -3));
 
   return {
-    paths: pages.map((number) => ({
-      params: { id: `hpg-${number}` },
+    paths: pages.map((newspaperNumber) => ({
+      params: { id: newspaperNumber },
     })),
     fallback: false,
   };
@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<HpgLayoutProps, Params> = async ({
   params,
 }) => {
   const [content, newspaperNumbers] = await Promise.all([
-    fs.readFile(`./text/${params?.id.slice(4)}.md`, "utf8"),
+    fs.readFile(`./text/${params?.id}.md`, "utf8"),
     getNewspaperNumbers(),
   ]);
 

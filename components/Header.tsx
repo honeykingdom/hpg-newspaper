@@ -84,7 +84,7 @@ const Logo = styled.img.attrs({
   }
 `;
 
-const normalizeArticleNumber = (number: string) =>
+const normalizeNewspaperNumber = (number: string) =>
   number[0] === "0" ? number.slice(1) : number;
 
 type Props = {
@@ -98,7 +98,7 @@ const Header = ({ date, currentNewspaperNumber, newspaperNumbers }: Props) => {
     newspaperNumbers,
     currentNewspaperNumber
   );
-  const renderedArticles = newspaperNumbers.filter(
+  const renderedNewspaperNumbers = newspaperNumbers.filter(
     (_, i) => i !== currentIndex
   );
 
@@ -113,10 +113,10 @@ const Header = ({ date, currentNewspaperNumber, newspaperNumbers }: Props) => {
             </ArticleNumberText>
           )}
           <Dropdown>
-            {renderedArticles.map((n) => (
-              <Item key={n}>
-                <Link href={`/articles/hpg-${n}`}>
-                  <a>Выпуск {normalizeArticleNumber(n)}</a>
+            {renderedNewspaperNumbers.map((newspaperNumber) => (
+              <Item key={newspaperNumber}>
+                <Link href={newspaperNumber}>
+                  <a>Выпуск {normalizeNewspaperNumber(newspaperNumber)}</a>
                 </Link>
               </Item>
             ))}
