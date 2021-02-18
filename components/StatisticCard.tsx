@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import type { PlayerName } from "../types";
-import ImageBorder from "../public/images/statistic-image-border.svg";
 
 const StatisticCardRoot = styled.div<{ color: string }>`
   position: relative;
@@ -52,13 +51,31 @@ const Name = styled.div`
   }
 `;
 const ImageWrapper = styled.div`
-  position: relative;
   width: 140px;
   height: 90px;
-  padding: 1px;
   margin-bottom: 8px;
-  clip-path: path(
-    "M15 0L0 14v8l4 2v19l-4 2v31l15 14h12l2-4h82l2 4h12l15-14V14L125 0h-14l-2 4H86l-2-4z"
+  background-color: var(--color-blue);
+  clip-path: polygon(
+    15px 0,
+    84px 0,
+    86px 4px,
+    109px 4px,
+    111px 0,
+    125px 0,
+    140px 15px,
+    140px 75px,
+    125px 90px,
+    113px 90px,
+    111px 86px,
+    29px 86px,
+    27px 90px,
+    15px 90px,
+    0 75px,
+    0 45px,
+    4px 43px,
+    4px 24px,
+    0 22px,
+    0 15px
   );
 
   @media (min-width: 420px) {
@@ -68,9 +85,36 @@ const ImageWrapper = styled.div`
     margin-bottom: 0;
   }
 `;
+const ImageInner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  clip-path: polygon(
+    17px 3px,
+    82px 3px,
+    84px 7px,
+    111px 7px,
+    113px 3px,
+    123px 3px,
+    137px 17px,
+    137px 73px,
+    123px 87px,
+    115px 87px,
+    113px 83px,
+    27px 83px,
+    25px 87px,
+    17px 87px,
+    3px 73px,
+    3px 47px,
+    7px 45px,
+    7px 22px,
+    3px 20px,
+    3px 17px
+  );
+`;
 const Image = styled.img`
   display: block;
-  border-radius: 16px;
 `;
 const Table = styled.div`
   font-size: 18px;
@@ -122,26 +166,18 @@ type Props = {
   partner: string;
 };
 
-const StyledImageBorder = styled(ImageBorder)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  fill: var(--color-blue);
-`;
-
 const StatisticCard = ({ name, time, level, points, partner }: Props) => (
   <StatisticCardRoot color={players[name].color}>
     <Name>{players[name].name}</Name>
     <ImageWrapper>
-      <Image
-        src={players[name].image}
-        alt={players[name].name}
-        width={136}
-        height={86}
-      />
-      <StyledImageBorder />
+      <ImageInner>
+        <Image
+          src={players[name].image}
+          alt={players[name].name}
+          width={136}
+          height={86}
+        />
+      </ImageInner>
     </ImageWrapper>
     <Table>
       <TableRow>
