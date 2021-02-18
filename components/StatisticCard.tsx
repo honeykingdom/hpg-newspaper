@@ -57,6 +57,9 @@ const ImageWrapper = styled.div`
   height: 90px;
   padding: 1px;
   margin-bottom: 8px;
+  clip-path: path(
+    "M15 0L0 14v8l4 2v19l-4 2v31l15 14h12l2-4h82l2 4h12l15-14V14L125 0h-14l-2 4H86l-2-4z"
+  );
 
   @media (min-width: 420px) {
     position: absolute;
@@ -67,9 +70,7 @@ const ImageWrapper = styled.div`
 `;
 const Image = styled.img`
   display: block;
-  clip-path: path(
-    "M15 0L0 14v8l4 2v19l-4 2v31l15 14h12l2-4h82l2 4h12l15-14V14L125 0h-14l-2 4H86l-2-4z"
-  );
+  border-radius: 16px;
 `;
 const Table = styled.div`
   font-size: 18px;
