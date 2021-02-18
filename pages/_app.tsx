@@ -1,12 +1,6 @@
-import { useEffect } from "react";
-import ReactGA from "react-ga";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Head from "next/head";
 import type { AppProps } from "next/app";
-
-if (process.browser) {
-  ReactGA.initialize("G-J5S7V75HYZ");
-}
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -41,25 +35,32 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {};
 
-const App = ({ Component, pageProps }: AppProps) => {
-  useEffect(() => {
-    if (process.browser) {
-      ReactGA.pageview(window.location.pathname + window.location.search);
-    }
-  }, []);
+const App = ({ Component, pageProps }: AppProps) => (
+  <>
+    <Head>
+      <title>HPG Newspaper</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-J5S7V75HYZ"
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-  return (
-    <>
-      <Head>
-        <title>HPG Newspaper</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
-  );
-};
+            gtag('config', 'G-J5S7V75HYZ', { page_path: window.location.pathname + window.location.search });
+          `,
+        }}
+      ></script>
+    </Head>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  </>
+);
 
 export default App;
