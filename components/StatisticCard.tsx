@@ -153,7 +153,7 @@ const StatisticCard = ({ name, time, level, points, partner }: Props) => (
         Points: <strong>{points}</strong>
       </TableRow>
       <TableRow>
-        Partner: <strong>{partner}</strong>
+        Partner: <strong dangerouslySetInnerHTML={{ __html: partner }} />
       </TableRow>
     </Table>
   </StatisticCardRoot>
