@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
 import type { ComponentDictionary } from "../types";
+import VideoModal from "./VideoModal";
+import getTwitchClipEmbedSrc from "../utils/getTwitchClipEmbedSrc";
 
 const ArticleNeonRoot = styled.article`
   position: relative;
@@ -81,6 +84,15 @@ const Content = styled.div`
   font-size: 18px;
   line-height: 1.5;
 
+  a {
+    color: inherit;
+    text-decoration-color: var(--color-yellow);
+
+    &:hover {
+      color: var(--color-yellow);
+    }
+  }
+
   & :last-child {
     margin-bottom: 0;
   }
@@ -105,13 +117,13 @@ const ArticleNeon = ({
   content,
   components,
 }: Props) => (
-  <ArticleNeonRoot>
-    <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
-    <Title dangerouslySetInnerHTML={{ __html: title || "" }} />
+      <ArticleNeonRoot>
+        <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
+        <Title dangerouslySetInnerHTML={{ __html: title || "" }} />
     <Content>
-      {content ? <MDX components={components}>{content}</MDX> : children}
-    </Content>
-  </ArticleNeonRoot>
-);
+          {content ? <MDX components={components}>{content}</MDX> : children}
+        </Content>
+      </ArticleNeonRoot>
+  );
 
 export default ArticleNeon;

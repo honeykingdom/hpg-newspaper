@@ -162,8 +162,12 @@ const Content = styled.div<{ color: ArticleColor; hasImage: boolean }>`
   }
 
   a {
-    text-decoration: none;
-    color: var(--color-blue);
+    color: inherit;
+    text-decoration-color: var(--color-yellow);
+
+    &:hover {
+      color: var(--color-yellow);
+    }
   }
 
   & :last-child {
