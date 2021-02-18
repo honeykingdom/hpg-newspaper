@@ -10,17 +10,27 @@ const StyledModal = styled(Modal)`
   padding: 0;
   margin: 0 16px;
   width: 100%;
+  height: 320px;
+  max-height: 100vh;
   border-radius: 0;
   border: none;
-  background: #000;
   outline: none;
 
   @media (min-width: 540px) {
     margin: 0 32px;
+    height: 480px;
+  }
+
+  @media (min-width: 864px) {
+    height: 560px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 640px;
   }
 
   @media (min-width: 1280px) {
-    margin: 32px 0;
+    margin: 32px auto;
     width: 1280px;
     height: 720px;
   }
@@ -34,7 +44,6 @@ const VideoFrame = styled.iframe.attrs({
   max-height: 100vh;
   border: none;
   background-color: #000;
-  aspect-ratio: 16 / 9;
 `;
 const styledOverlay = {
   position: "fixed",
@@ -77,6 +86,7 @@ const VideoModal = ({ isOpen, src, onClose }: Props) => (
     style={{ overlay: styledOverlay }}
   >
     <VideoFrame src={src} />
+
     <ModalClose onClick={onClose} />
   </StyledModal>
 );
