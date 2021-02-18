@@ -116,14 +116,41 @@ const ArticleNeon = ({
   subtitle,
   content,
   components,
-}: Props) => (
+}: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("");
+
+  // TODO: remove this
+  const handleContentClick = (e: any) => {
+    if (e.target.nodeName === "A") {
+      const src = getTwitchClipEmbedSrc(e.target.href);
+
+      if (src) {
+        e.preventDefault();
+        setIsOpen(true);
+        setVideoSrc(src);
+      }
+    }
+  };
+
+  return (
+    <>
       <ArticleNeonRoot>
         <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
         <Title dangerouslySetInnerHTML={{ __html: title || "" }} />
-    <Content>
+        <Content onClick={handleContentClick}>
           {content ? <MDX components={components}>{content}</MDX> : children}
         </Content>
       </ArticleNeonRoot>
+      {isOpen && (
+        <VideoModal
+          isOpen={isOpen}
+          src={videoSrc}
+          onClose={() => setIsOpen(false)}
+        />
+      )}
+    </>
   );
+};
 
 export default ArticleNeon;
