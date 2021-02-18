@@ -1,8 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
-import type { ArticleType, ArticleColor, ComponentDictionary } from "../types";
-import ArticleNeon from "./ArticleNeon";
+import type {
+  ArticleType,
+  ArticleColor,
+  ComponentDictionary,
+  ArticleVariant,
+} from "../types";
 import Icon from "./Icon";
 import VideoModal from "./VideoModal";
 import getTwitchClipEmbedSrc from "../utils/getTwitchClipEmbedSrc";
@@ -27,6 +31,33 @@ const ArticleRoot = styled.article`
   background-color: #171717;
   clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px);
   overflow: hidden;
+`;
+const ArticleNeon = styled.article`
+  position: relative;
+  margin-bottom: 32px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  color: var(--color-blue);
+  background-color: var(--color-black);
+  border: 2px solid var(--color-blue);
+  clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px);
+  overflow: hidden;
+
+  @media (min-width: 540px) {
+    padding-top: 32px;
+    padding-bottom: 40px;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-blue);
+    clip-path: polygon(15px 0, 0 15px, 0 0);
+  }
 `;
 const Header = styled.header<{ color: ArticleColor }>`
   padding-top: 32px;
@@ -69,6 +100,41 @@ const Subtitle = styled.span`
     }
   }
 `;
+const SubtitleNeon = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: calc(var(--subtitle-hr-width) + var(--padding-mobile) * 2);
+  padding-right: var(--padding-mobile);
+  margin-bottom: 32px;
+  font-family: var(--font-secondary);
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+  letter-spacing: 0.2em;
+  line-height: 16px;
+
+  @media (min-width: 540px) {
+    padding-left: calc(var(--subtitle-hr-width) + var(--padding-desktop) * 2);
+    padding-right: var(--padding-desktop);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: var(--padding-mobile);
+    width: 48px;
+    height: 2px;
+    background-color: currentColor;
+
+    @media (min-width: 540px) {
+      left: var(--padding-desktop);
+    }
+  }
+`;
 const Title = styled.div`
   padding: 0 var(--padding-mobile);
   margin-bottom: 20px;
@@ -81,6 +147,18 @@ const Title = styled.div`
     padding: 0 var(--padding-desktop);
     font-size: 36px;
     line-height: 48px;
+  }
+`;
+const TitleNeon = styled.div`
+  padding: 0 var(--padding-mobile);
+  margin-bottom: 32px;
+  font-size: 26px;
+  line-height: 34px;
+  font-family: var(--font-secondary);
+  font-weight: bold;
+
+  @media (min-width: 540px) {
+    padding: 0 var(--padding-desktop);
   }
 `;
 const HeaderImageWrapper = styled.div`
@@ -114,13 +192,18 @@ const ImageBottomLine = styled(Line)<{ color: ArticleColor }>`
   transform: scaleY(-1);
   fill: ${(p) => bgColorsMap[p.color]};
 `;
-const Content = styled.div<{ color: ArticleColor; hasImage: boolean }>`
+type ContentProps = {
+  variant: ArticleVariant;
+  color: ArticleColor;
+  hasImage: boolean;
+};
+const Content = styled.div<ContentProps>`
   padding-left: var(--padding-mobile);
   padding-right: var(--padding-mobile);
-  padding-bottom: 24px;
-  padding-top: ${(p) => (p.hasImage ? "8px" : "0")};
+  padding-bottom: ${(p) => (p.variant === "default" ? "24px" : "0")};
+  padding-top: ${(p) => (p.variant === "default" && p.hasImage ? "8px" : "0")};
   line-height: 1.5;
-  font-size: 16px;
+  font-size: ${(p) => (p.variant === "default" ? "16px" : "18px")};
 
   @media (min-width: 540px) {
     padding-left: var(--padding-desktop);
@@ -202,10 +285,9 @@ const Article = ({
   const hasContent = content || children;
   const hasImage = !!image;
 
-  // TODO: React.MouseEvent<Element, MouseEvent>
-  const handleContentClick = (e: any) => {
-    if (e.target.nodeName === "A") {
-      const src = getTwitchClipEmbedSrc(e.target.href);
+  const handleContentClick = (e: React.MouseEvent<Element, MouseEvent>) => {
+    if ((e.target as any).nodeName === "A") {
+      const src = getTwitchClipEmbedSrc((e.target as HTMLAnchorElement).href);
 
       if (src) {
         e.preventDefault();
@@ -215,14 +297,35 @@ const Article = ({
     }
   };
 
+  const renderContent = () => (
+    <Content
+      variant={variant}
+      color={color}
+      hasImage={hasImage}
+      onClick={handleContentClick}
+    >
+      {content ? <MDX components={components}>{content}</MDX> : children}
+    </Content>
+  );
+
+  const renderModal = () => (
+    <VideoModal
+      isOpen={isOpen}
+      src={videoSrc}
+      onClose={() => setIsOpen(false)}
+    />
+  );
+
   if (variant === "neon") {
     return (
-      <ArticleNeon
-        title={title}
-        subtitle={subtitle}
-        content={content}
-        components={components}
-      />
+      <>
+        <ArticleNeon>
+          <SubtitleNeon dangerouslySetInnerHTML={{ __html: subtitle }} />
+          <TitleNeon dangerouslySetInnerHTML={{ __html: title || "" }} />
+          {hasContent && renderContent()}
+        </ArticleNeon>
+        {isOpen && renderModal()}
+      </>
     );
   }
 
@@ -252,25 +355,10 @@ const Article = ({
             }}
           />
         )}
-        {hasContent && (
-          <Content
-            color={color}
-            hasImage={hasImage}
-            onClick={handleContentClick}
-          >
-            {content ? <MDX components={components}>{content}</MDX> : children}
-          </Content>
-        )}
+        {hasContent && renderContent()}
         {variant === "default" && hasContent && <BottomLine color={color} />}
       </ArticleRoot>
-
-      {isOpen && (
-        <VideoModal
-          isOpen={isOpen}
-          src={videoSrc}
-          onClose={() => setIsOpen(false)}
-        />
-      )}
+      {isOpen && renderModal()}
     </>
   );
 };
