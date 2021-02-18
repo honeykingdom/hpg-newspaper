@@ -79,6 +79,7 @@ const Title = styled.div`
 const Content = styled.div`
   padding: 0 var(--padding-mobile);
   font-size: 18px;
+  line-height: 1.5;
 
   & :last-child {
     margin-bottom: 0;
