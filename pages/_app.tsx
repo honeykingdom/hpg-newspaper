@@ -40,21 +40,6 @@ const App = ({ Component, pageProps }: AppProps) => (
     <Head>
       <title>HPG Newspaper</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-J5S7V75HYZ"
-      ></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-J5S7V75HYZ', { page_path: window.location.pathname + window.location.search });
-          `,
-        }}
-      ></script>
     </Head>
     <GlobalStyle />
     <ThemeProvider theme={theme}>

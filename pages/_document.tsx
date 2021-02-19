@@ -7,6 +7,16 @@ import Document, {
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
+const GOOGLE_ANALYTICS_ID = "G-J5S7V75HYZ";
+
+const gaScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '${GOOGLE_ANALYTICS_ID}', { page_path: window.location.pathname + window.location.search });
+`;
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -63,6 +73,11 @@ export default class MyDocument extends Document {
             href="/favicon-16x16.png"
           />
           <link rel="manifest" href="/manifest.json" />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+          />
+          <script dangerouslySetInnerHTML={{ __html: gaScript }} />
         </Head>
         <body>
           <Main />
