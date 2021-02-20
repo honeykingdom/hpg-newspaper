@@ -6,15 +6,14 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-
-const GOOGLE_ANALYTICS_ID = "G-J5S7V75HYZ";
+import { GA_TRACKING_ID } from "utils/constants";
 
 const gaScript = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', '${GOOGLE_ANALYTICS_ID}', { page_path: window.location.pathname + window.location.search });
+  gtag('config', '${GA_TRACKING_ID}', { page_path: window.location.pathname });
 `;
 
 export default class MyDocument extends Document {
@@ -74,7 +73,7 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
           <script dangerouslySetInnerHTML={{ __html: gaScript }} />
           <meta
