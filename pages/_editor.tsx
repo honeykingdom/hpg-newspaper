@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
 import parseNewspaperData from "utils/parseNewspaperData";
@@ -35,14 +35,14 @@ const Editor = () => {
   );
   const hackmdId = urlParams.get("hackmdId");
 
-  const updateMdDocument = async () => {
+  const updateMdDocument = useCallback(async () => {
     const response = await fetch(`https://hackmd.io/${hackmdId}/download`);
     const text = await response.text();
 
     setMdDocument(text);
-  };
+  }, [hackmdId]);
 
-  const updateData = () => {
+  const updateData = useCallback(() => {
     try {
       const result = parseNewspaperData(mdDocument);
 
@@ -51,15 +51,15 @@ const Editor = () => {
     } catch (e) {
       setError(e.stack || e.toString());
     }
-  };
+  }, [mdDocument]);
 
   useEffect(() => {
     updateMdDocument();
-  }, []);
+  }, [updateMdDocument]);
 
   useEffect(() => {
     updateData();
-  }, [mdDocument]);
+  }, [mdDocument, updateData]);
 
   if (!hackmdId) return null;
 

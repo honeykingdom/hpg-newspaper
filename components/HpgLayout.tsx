@@ -53,15 +53,15 @@ const HpgLayout = ({
       <Grid container>
         <Grid item>
           <CardsWrapper>
-            {statistics.slice(0, 3).map((props) => (
-              <StatisticCard key={props.name} {...props} />
+            {statistics.slice(0, 3).map((card) => (
+              <StatisticCard key={card.name} {...card} />
             ))}
           </CardsWrapper>
         </Grid>
         <Grid item>
           <CardsWrapper>
-            {statistics.slice(3).map((props) => (
-              <StatisticCard key={props.name} {...props} />
+            {statistics.slice(3).map((card) => (
+              <StatisticCard key={card.name} {...card} />
             ))}
           </CardsWrapper>
         </Grid>

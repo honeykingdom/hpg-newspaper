@@ -105,6 +105,7 @@ const Header = ({ date, currentNewspaperNumber, newspaperNumbers }: Props) => {
             {renderedNewspaperNumbers.map((newspaperNumber) => (
               <Item key={newspaperNumber}>
                 <Link href={newspaperNumber}>
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <a>Выпуск {normalizeNewspaperNumber(newspaperNumber)}</a>
                 </Link>
               </Item>

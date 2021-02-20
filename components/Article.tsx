@@ -291,7 +291,7 @@ const Article = ({
   const hasImage = !!image;
 
   const handleContentClick = (e: React.MouseEvent<Element, MouseEvent>) => {
-    let anchorElement = getAnchorElement(e.target as HTMLElement);
+    const anchorElement = getAnchorElement(e.target as HTMLElement);
 
     if (!anchorElement) return;
 
