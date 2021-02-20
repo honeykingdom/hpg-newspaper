@@ -262,6 +262,18 @@ const BottomLine = styled(Line)<{ color: ArticleColor }>`
   transform: scaleY(-1);
 `;
 
+const getAnchorElement = (
+  el: HTMLElement | null,
+  depth = 2
+): HTMLAnchorElement | null => {
+  if (!el) return null;
+  if (el.nodeName === "A") return el as HTMLAnchorElement;
+
+  if (depth === 0) return null;
+
+  return getAnchorElement(el.parentElement, depth - 1);
+};
+
 const components: ComponentDictionary = { Icon };
 
 type Props = {
@@ -286,15 +298,17 @@ const Article = ({
   const hasImage = !!image;
 
   const handleContentClick = (e: React.MouseEvent<Element, MouseEvent>) => {
-    if ((e.target as any).nodeName === "A") {
-      const src = getTwitchClipEmbedSrc((e.target as HTMLAnchorElement).href);
+    let anchorElement = getAnchorElement(e.target as HTMLElement);
 
-      if (src) {
+    if (!anchorElement) return;
+
+    const src = getTwitchClipEmbedSrc(anchorElement.href);
+
+    if (!src) return;
+
         e.preventDefault();
         setIsOpen(true);
         setVideoSrc(src);
-      }
-    }
   };
 
   const renderContent = () => (
