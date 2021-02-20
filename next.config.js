@@ -10,4 +10,9 @@ module.exports = {
 
     return config;
   },
+  // TODO: remove after next.js will fix it
+  // https://github.com/vercel/next.js/discussions/19372#discussioncomment-135696
+  images: {
+    loader: "imgix",
+  },
 };
