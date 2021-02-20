@@ -9,7 +9,7 @@ export type ArticleType = {
   title?: string;
   subtitle: string;
   image?: string;
-  imageHeight?: number;
+  imageHeight: number;
   imageWidth?: number;
   content?: string;
   color: ArticleColor;
