@@ -84,6 +84,7 @@ const VideoModal = ({ isOpen, src, onClose }: Props) => (
     isOpen={isOpen}
     onRequestClose={onClose}
     style={{ overlay: styledOverlay }}
+    ariaHideApp={false}
   >
     <VideoFrame src={src} />
 
