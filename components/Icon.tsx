@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import icons from "./icons.json";
+import icons from "components/icons.json";
 
 const EmoteRoot = styled.img<{ $type: IconType }>`
   margin: ${(p) => (p.$type === "emote" ? "-2px 0" : "0 0 4px 0")};

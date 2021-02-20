@@ -1,13 +1,13 @@
 import { promises as fs } from "fs";
 import { GetStaticPaths, GetStaticProps } from "next";
 import MDX from "@mdx-js/runtime";
-import Grid from "../components/Grid";
-import Article from "../components/Article";
-import Heading from "../components/Heading";
-import HpgLayout from "../components/HpgLayout";
-import getNewspaperNumbers from "../utils/getNewspaperNumbers";
-import parseNewspaperData from "../utils/parseNewspaperData";
-import type { ComponentDictionary, HpgLayoutProps } from "../types";
+import Grid from "components/Grid";
+import Article from "components/Article";
+import Heading from "components/Heading";
+import HpgLayout from "components/HpgLayout";
+import getNewspaperNumbers from "utils/getNewspaperNumbers";
+import parseNewspaperData from "utils/parseNewspaperData";
+import type { ComponentDictionary, HpgLayoutProps } from "types";
 
 export const components: ComponentDictionary = {
   Layout: HpgLayout,

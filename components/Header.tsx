@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import getCurrentNewspaperIndex from "../utils/getCurrentNewspaperIndex";
+import getCurrentNewspaperIndex from "utils/getCurrentNewspaperIndex";
 
 const HeaderRoot = styled.header`
   padding-top: 16px;

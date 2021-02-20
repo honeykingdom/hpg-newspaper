@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styled, { css } from "styled-components";
-import getCurrentNewspaperIndex from "../utils/getCurrentNewspaperIndex";
-import ArrowPrev from "../public/images/arrow-prev.svg";
-import ArrowNext from "../public/images/arrow-next.svg";
-import GithubIcon from "../public/images/github-icon.svg";
+import getCurrentNewspaperIndex from "utils/getCurrentNewspaperIndex";
+import ArrowPrev from "public/images/arrow-prev.svg";
+import ArrowNext from "public/images/arrow-next.svg";
+import GithubIcon from "public/images/github-icon.svg";
 
 const ContainerRoot = styled.div`
   position: relative;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MDX from "@mdx-js/runtime";
-import parseNewspaperData from "../utils/parseNewspaperData";
-import type { HpgLayoutProps } from "../types";
-import { components } from "./[id]";
+import parseNewspaperData from "utils/parseNewspaperData";
+import type { HpgLayoutProps } from "types";
+import { components } from "pages/[id]";
 
 const UpdateButton = styled.button`
   position: fixed;

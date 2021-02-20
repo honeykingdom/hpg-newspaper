@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import type { GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import getNewspaperNumbers from "../utils/getNewspaperNumbers";
+import getNewspaperNumbers from "utils/getNewspaperNumbers";
 
 type Props = {
   lastNewspaperNumber: string;

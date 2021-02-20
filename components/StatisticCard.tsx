@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import type { PlayerName } from "../types";
+import type { PlayerName } from "types";
 
 const StatisticCardRoot = styled.div<{ color: string }>`
   position: relative;

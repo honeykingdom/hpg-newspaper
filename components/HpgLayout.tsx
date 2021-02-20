@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Head from "next/head";
-import Container from "./Container";
-import Grid from "./Grid";
-import Header from "./Header";
-import Heading from "./Heading";
-import StatisticCard from "./StatisticCard";
-import Map from "./Map";
-import type { StatisticItem } from "../types";
+import Container from "components/Container";
+import Grid from "components/Grid";
+import Header from "components/Header";
+import Heading from "components/Heading";
+import StatisticCard from "components/StatisticCard";
+import Map from "components/Map";
+import type { StatisticItem } from "types";
 
 const CardsWrapper = styled.div`
   @media (min-width: 420px) {

@@ -7,11 +7,11 @@ import type {
   ArticleColor,
   ComponentDictionary,
   ArticleVariant,
-} from "../types";
-import Icon from "./Icon";
-import VideoModal from "./VideoModal";
-import getTwitchClipEmbedSrc from "../utils/getTwitchClipEmbedSrc";
-import Line from "../public/images/line.svg";
+} from "types";
+import Icon from "components/Icon";
+import VideoModal from "components/VideoModal";
+import getTwitchClipEmbedSrc from "utils/getTwitchClipEmbedSrc";
+import Line from "public/images/line.svg";
 
 const bgColorsMap = {
   yellow: "var(--color-yellow)",

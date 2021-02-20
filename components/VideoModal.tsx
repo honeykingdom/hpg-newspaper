@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Modal from "react-modal";
-import Close from "../public/images/close.svg";
+import Close from "public/images/close.svg";
 
 const StyledModal = styled(Modal)`
   position: static;
