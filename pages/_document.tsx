@@ -49,7 +49,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ru" dir="ltr">
         <Head>
-          <meta charSet="utf-8" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Inter:wght@500;800&display=swap"
@@ -78,6 +77,10 @@ export default class MyDocument extends Document {
             src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
           />
           <script dangerouslySetInnerHTML={{ __html: gaScript }} />
+          <meta
+            name="description"
+            content="HPG Newspaper. Газета с последними новостями по ХПГ 3.0"
+          />
         </Head>
         <body>
           <Main />
