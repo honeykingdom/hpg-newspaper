@@ -22,6 +22,7 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.4",
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/jest": "^26.0.20",
     "@types/js-yaml": "^4.0.0",
@@ -29,7 +30,39 @@
     "@types/react": "^17.0.1",
     "@types/react-modal": "^3.12.0",
     "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "next-remote-watch": "^0.3.0",
+    "prettier": "^2.2.1",
     "typescript": "^4.1.5"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": [
+      "airbnb-typescript",
+      "airbnb/hooks",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/react",
+      "prettier/@typescript-eslint"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "react/require-default-props": "off",
+      "react/jsx-props-no-spreading": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off"
+    }
   }
 }
