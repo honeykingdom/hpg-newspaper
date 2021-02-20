@@ -247,6 +247,7 @@ const Content = styled.div<ContentProps>`
   a {
     color: inherit;
     text-decoration-color: var(--color-yellow);
+    text-decoration-thickness: 2px;
 
     &:hover {
       color: var(--color-yellow);
@@ -306,9 +307,9 @@ const Article = ({
 
     if (!src) return;
 
-        e.preventDefault();
-        setIsOpen(true);
-        setVideoSrc(src);
+    e.preventDefault();
+    setIsOpen(true);
+    setVideoSrc(src);
   };
 
   const renderContent = () => (
