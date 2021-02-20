@@ -46,7 +46,7 @@ type Props = {
 
 const Map = ({ src }: Props) => (
   <MapRoot>
-    <Image src={src} alt="HPG map" />
+    <Image src={src} alt="HPG map" loading="lazy" />
   </MapRoot>
 );
 
