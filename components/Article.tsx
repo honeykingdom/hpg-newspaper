@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 import MDX from "@mdx-js/runtime";
 import type {
   ArticleType,
@@ -167,15 +168,6 @@ const HeaderImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #171717;
-`;
-const HeaderImage = styled.img<{ $height?: number; $width?: number }>`
-  display: block;
-  object-fit: contain;
-
-  @media (min-width: 864px) {
-    width: ${(p) => p.$width}px;
-    height: ${(p) => p.$height}px;
-  }
 `;
 const ImageTopLine = styled(Line)<{ color: ArticleColor }>`
   position: absolute;
@@ -353,11 +345,13 @@ const Article = ({
           {image && (
             <HeaderImageWrapper>
               <ImageTopLine color={color} />
-              <HeaderImage
+              <Image
                 src={image}
                 alt={title}
-                $height={imageHeight}
-                $width={imageWidth}
+                height={imageHeight}
+                width={imageWidth}
+                layout="responsive"
+                unoptimized
               />
               <ImageBottomLine color={color} />
             </HeaderImageWrapper>

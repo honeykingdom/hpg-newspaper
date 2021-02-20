@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styled from "styled-components";
 import getCurrentNewspaperIndex from "../utils/getCurrentNewspaperIndex";
 
@@ -67,21 +68,9 @@ const Item = styled.li`
     }
   }
 `;
-const Logo = styled.img.attrs({
-  src: "/images/logo.png",
-  alt: "HPG Newspaper",
-})`
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  max-height: 200px;
-  object-fit: contain;
-  aspect-ratio: 6 / 2;
-
-  @media (min-width: 864px) {
-    width: 600px;
-    height: 200px;
-  }
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const normalizeNewspaperNumber = (number: string) =>
@@ -123,7 +112,17 @@ const Header = ({ date, currentNewspaperNumber, newspaperNumbers }: Props) => {
           </Dropdown>
         </ArticleNumber>
       </Description>
-      <Logo />
+      <LogoWrapper>
+        <Image
+          src="/images/logo.png"
+          alt="HPG Newspaper"
+          width={600}
+          height={200}
+          layout="intrinsic"
+          priority
+          unoptimized
+        />
+      </LogoWrapper>
     </HeaderRoot>
   );
 };

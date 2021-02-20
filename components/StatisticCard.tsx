@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styled from "styled-components";
 import type { PlayerName } from "../types";
 
@@ -113,9 +114,6 @@ const ImageInner = styled.div`
     3px 17px
   );
 `;
-const Image = styled.img`
-  display: block;
-`;
 const Table = styled.div`
   font-size: 18px;
 `;
@@ -176,6 +174,8 @@ const StatisticCard = ({ name, time, level, points, partner }: Props) => (
           alt={players[name].name}
           width={136}
           height={86}
+          layout="fixed"
+          unoptimized
         />
       </ImageInner>
     </ImageWrapper>
