@@ -246,6 +246,10 @@ const Content = styled.div<ContentProps>`
     }
   }
 
+  img {
+    max-width: 100%;
+  }
+
   & :last-child {
     margin-bottom: 0;
   }
