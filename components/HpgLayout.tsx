@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Head from "next/head";
 import Container from "components/Container";
 import Grid from "components/Grid";
 import Header from "components/Header";
@@ -33,44 +32,39 @@ const HpgLayout = ({
   statistics,
   newspaperNumbers,
 }: Props) => (
-  <>
-    <Head>
-      <title>HPG Newspaper. Выпуск {number}</title>
-    </Head>
-    <Container
+  <Container
+    currentNewspaperNumber={number}
+    newspaperNumbers={newspaperNumbers}
+  >
+    <Header
+      date={date}
       currentNewspaperNumber={number}
       newspaperNumbers={newspaperNumbers}
-    >
-      <Header
-        date={date}
-        currentNewspaperNumber={number}
-        newspaperNumbers={newspaperNumbers}
-      />
+    />
 
-      {children}
+    {children}
 
-      <Heading>Статистика участников</Heading>
-      <Grid container>
-        <Grid item>
-          <CardsWrapper>
-            {statistics.slice(0, 3).map((card) => (
-              <StatisticCard key={card.name} {...card} />
-            ))}
-          </CardsWrapper>
-        </Grid>
-        <Grid item>
-          <CardsWrapper>
-            {statistics.slice(3).map((card) => (
-              <StatisticCard key={card.name} {...card} />
-            ))}
-          </CardsWrapper>
-        </Grid>
+    <Heading>Статистика участников</Heading>
+    <Grid container>
+      <Grid item>
+        <CardsWrapper>
+          {statistics.slice(0, 3).map((card) => (
+            <StatisticCard key={card.name} {...card} />
+          ))}
+        </CardsWrapper>
       </Grid>
+      <Grid item>
+        <CardsWrapper>
+          {statistics.slice(3).map((card) => (
+            <StatisticCard key={card.name} {...card} />
+          ))}
+        </CardsWrapper>
+      </Grid>
+    </Grid>
 
-      <Heading>Карта</Heading>
-      <Map src={map} />
-    </Container>
-  </>
+    <Heading>Карта</Heading>
+    <Map src={map} />
+  </Container>
 );
 
 export default HpgLayout;
