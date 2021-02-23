@@ -1,6 +1,7 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import Head from "next/head";
 import type { AppProps, NextWebVitalsMetric } from "next/app";
+import { DefaultSeo } from "next-seo";
+import SEO from "next-seo.config";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -37,10 +38,7 @@ const theme = {};
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
-    <Head>
-      <title>HPG Newspaper</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Head>
+    <DefaultSeo {...SEO} />
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />

@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 import MDX from "@mdx-js/runtime";
 import Grid from "components/Grid";
 import Article from "components/Article";
@@ -21,9 +22,13 @@ type Params = {
 };
 
 const HpgNews = ({ articles, layout, ...props }: HpgLayoutProps) => (
-  <MDX components={components} scope={{ articles, props }}>
-    {layout}
-  </MDX>
+  <>
+    {/* eslint-disable-next-line react/destructuring-assignment */}
+    <NextSeo title={`HPG Newspaper. Выпуск ${props.number}`} />
+    <MDX components={components} scope={{ articles, props }}>
+      {layout}
+    </MDX>
+  </>
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {

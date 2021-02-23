@@ -76,10 +76,6 @@ export default class MyDocument extends Document {
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
           <script dangerouslySetInnerHTML={{ __html: gaScript }} />
-          <meta
-            name="description"
-            content="HPG Newspaper. Газета с последними новостями по ХПГ 3.0"
-          />
         </Head>
         <body>
           <Main />
