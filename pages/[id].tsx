@@ -6,6 +6,7 @@ import Grid from "components/Grid";
 import Article from "components/Article";
 import Heading from "components/Heading";
 import HpgLayout from "components/HpgLayout";
+import ArticleImage from "components/ArticleImage";
 import getNewspaperNumbers from "utils/getNewspaperNumbers";
 import parseNewspaperData from "utils/parseNewspaperData";
 import type { ComponentDictionary, HpgLayoutProps } from "types";
@@ -15,6 +16,7 @@ export const components: ComponentDictionary = {
   Heading,
   Article,
   Grid,
+  ArticleImage,
 };
 
 type Params = {
