@@ -30,15 +30,13 @@ const Grid = ({ children, container, item }: Props) => {
   if (item) {
     return (
       <Item>
-        {React.Children.map(children, (child) =>
-          React.cloneElement(
-            child as React.ReactElement<
-              any,
-              string | React.JSXElementConstructor<any>
-            >,
-            { imageWidth: 384 }
-          )
-        )}
+        {React.Children.map(children, (child) => {
+          const isArticle = (child as any).props.title !== undefined;
+
+          return isArticle
+            ? React.cloneElement(child as any, { imageWidth: 384 })
+            : child;
+        })}
       </Item>
     );
   }
