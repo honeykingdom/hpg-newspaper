@@ -164,36 +164,41 @@ type Props = {
   partner: string;
 };
 
-const StatisticCard = ({ name, time, level, points, partner }: Props) => (
-  <StatisticCardRoot color={players[name].color}>
-    <Name>{players[name].name}</Name>
-    <ImageWrapper>
-      <ImageInner>
-        <Image
-          src={players[name].image}
-          alt={players[name].name}
-          width={136}
-          height={86}
-          layout="fixed"
-          unoptimized
-        />
-      </ImageInner>
-    </ImageWrapper>
-    <Table>
-      <TableRow>
-        Time: <strong>{time}</strong>
-      </TableRow>
-      <TableRow>
-        Level: <strong>{level}</strong>
-      </TableRow>
-      <TableRow>
-        Points: <strong>{points}</strong>
-      </TableRow>
-      <TableRow>
-        Partner: <strong dangerouslySetInnerHTML={{ __html: partner }} />
-      </TableRow>
-    </Table>
-  </StatisticCardRoot>
-);
+const StatisticCard = ({ name, time, level, points, partner }: Props) => {
+  const partnerLabel = partner.includes(",") ? "Partners" : "Partner";
+
+  return (
+    <StatisticCardRoot color={players[name].color}>
+      <Name>{players[name].name}</Name>
+      <ImageWrapper>
+        <ImageInner>
+          <Image
+            src={players[name].image}
+            alt={players[name].name}
+            width={136}
+            height={86}
+            layout="fixed"
+            unoptimized
+          />
+        </ImageInner>
+      </ImageWrapper>
+      <Table>
+        <TableRow>
+          Time: <strong>{time}</strong>
+        </TableRow>
+        <TableRow>
+          Level: <strong>{level}</strong>
+        </TableRow>
+        <TableRow>
+          Points: <strong>{points}</strong>
+        </TableRow>
+        <TableRow>
+          {partnerLabel}:{" "}
+          <strong dangerouslySetInnerHTML={{ __html: partner }} />
+        </TableRow>
+      </Table>
+    </StatisticCardRoot>
+  );
+};
 
 export default StatisticCard;
