@@ -238,11 +238,11 @@ const Content = styled.div<ContentProps>`
 
   a {
     color: inherit;
-    text-decoration-color: var(--color-yellow);
+    text-decoration-color: ${(p) => bgColorsMap[p.color]};
     text-decoration-thickness: 2px;
 
     &:hover {
-      color: var(--color-yellow);
+      color: ${(p) => bgColorsMap[p.color]};
     }
   }
 
