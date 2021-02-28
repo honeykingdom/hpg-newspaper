@@ -25,6 +25,13 @@ const colorsMap = {
   white: "var(--color-black)",
   red: "var(--color-white)",
 };
+const linkColorsMap = {
+  yellow: "var(--color-yellow)",
+  blue: "var(--color-blue)",
+  white: "var(--color-yellow)",
+  red: "var(--color-red)",
+  undefined: "var(--color-yellow)",
+};
 
 const ArticleRoot = styled.article`
   position: relative;
@@ -238,11 +245,11 @@ const Content = styled.div<ContentProps>`
 
   a {
     color: inherit;
-    text-decoration-color: ${(p) => bgColorsMap[p.color]};
+    text-decoration-color: ${(p) => linkColorsMap[p.color]};
     text-decoration-thickness: 2px;
 
     &:hover {
-      color: ${(p) => bgColorsMap[p.color]};
+      color: ${(p) => linkColorsMap[p.color]};
     }
   }
 
