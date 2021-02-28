@@ -11,6 +11,7 @@ import type {
 import Icon from "components/Icon";
 import VideoModal from "components/VideoModal";
 import getTwitchClipEmbedSrc from "utils/getTwitchClipEmbedSrc";
+import getYoutubeEmbedSrc from "utils/getYoutubeEmbedSrc";
 import Line from "public/images/line.svg";
 
 const bgColorsMap = {
@@ -304,9 +305,11 @@ const Article = ({
   const handleContentClick = (e: React.MouseEvent<Element, MouseEvent>) => {
     const anchorElement = getAnchorElement(e.target as HTMLElement);
 
-    if (!anchorElement) return;
+    if (!anchorElement || anchorElement.target === "_blank") return;
 
-    const src = getTwitchClipEmbedSrc(anchorElement.href);
+    const src =
+      getTwitchClipEmbedSrc(anchorElement.href) ||
+      getYoutubeEmbedSrc(anchorElement.href);
 
     if (!src) return;
 
