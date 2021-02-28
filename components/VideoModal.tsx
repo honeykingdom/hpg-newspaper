@@ -36,7 +36,8 @@ const StyledModal = styled(Modal)`
   }
 `;
 const VideoFrame = styled.iframe.attrs({
-  allow: "autoplay",
+  allow:
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
   allowFullScreen: true,
 })`
   width: 100%;
