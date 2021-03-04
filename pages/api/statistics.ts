@@ -6,9 +6,9 @@ const ORDER = [2, 1, 0, 4, 5, 3];
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const response = await fetch(
-      `https://hpg.su/api/info?steamToken=${process.env.STEAM_TOKEN}`
-    );
+    const response = await fetch(`https://hpg.su/api/info`, {
+      headers: { cookie: `steamToken=${process.env.STEAM_TOKEN}` },
+    });
     const data = await response.json();
 
     const players = data.map((player: any) => ({
