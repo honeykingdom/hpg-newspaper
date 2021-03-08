@@ -15,7 +15,8 @@
     "isomorphic-fetch": "^3.0.0",
     "jest": "^26.6.3",
     "js-yaml": "^4.0.0",
-    "next": "^10.0.8-canary.9",
+    "next": "^10.0.8",
+    "next-pwa": "^5.0.6",
     "next-seo": "^4.20.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -27,12 +28,12 @@
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/jest": "^26.0.20",
     "@types/js-yaml": "^4.0.0",
-    "@types/node": "^14.14.31",
-    "@types/react": "^17.0.1",
+    "@types/node": "^14.14.32",
+    "@types/react": "^17.0.3",
     "@types/react-modal": "^3.12.0",
     "@types/styled-components": "^5.1.7",
-    "@typescript-eslint/eslint-plugin": "^4.15.2",
-    "eslint": "^7.20.0",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "eslint": "^7.21.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-import": "^2.22.1",
@@ -41,7 +42,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "next-remote-watch": "^0.3.0",
     "prettier": "^2.2.1",
-    "typescript": "^4.1.5"
+    "typescript": "^4.2.3"
   },
   "eslintConfig": {
     "env": {
@@ -55,9 +56,8 @@
       "airbnb-typescript",
       "airbnb/hooks",
       "plugin:@typescript-eslint/recommended",
-      "prettier",
-      "prettier/react",
-      "prettier/@typescript-eslint"
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "prettier"
     ],
     "rules": {
       "react/react-in-jsx-scope": "off",
