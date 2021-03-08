@@ -1,4 +1,6 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
   webpack: (config) => {
     // make @mdx-js/runtime work correctly
     config.node.fs = "empty";
@@ -15,4 +17,7 @@ module.exports = {
   images: {
     loader: "imgix",
   },
-};
+  pwa: {
+    dest: "public",
+  },
+});
