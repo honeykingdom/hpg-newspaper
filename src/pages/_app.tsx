@@ -1,7 +1,7 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import type { AppProps, NextWebVitalsMetric } from "next/app";
 import { DefaultSeo } from "next-seo";
-import SEO from "next-seo.config";
+import SEO from "../../next-seo.config";
 
 const GlobalStyle = createGlobalStyle`
   :root {

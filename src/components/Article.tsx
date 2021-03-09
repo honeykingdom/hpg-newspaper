@@ -12,7 +12,7 @@ import Icon from "components/Icon";
 import VideoModal from "components/VideoModal";
 import getTwitchClipEmbedSrc from "utils/getTwitchClipEmbedSrc";
 import getYoutubeEmbedSrc from "utils/getYoutubeEmbedSrc";
-import Line from "public/images/line.svg";
+import Line from "images/line.svg";
 
 const bgColorsMap = {
   yellow: "var(--color-yellow)",
