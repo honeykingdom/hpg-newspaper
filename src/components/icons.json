@@ -29,6 +29,11 @@
       "1x": "https://static-cdn.jtvnw.net/emoticons/v1/86/1.0",
       "2x": "https://static-cdn.jtvnw.net/emoticons/v1/86/2.0",
       "3x": "https://static-cdn.jtvnw.net/emoticons/v1/86/3.0"
+    },
+    "EZ": {
+      "1x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/1x",
+      "2x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/2x",
+      "4x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/3x"
     }
   },
   "badge": {
