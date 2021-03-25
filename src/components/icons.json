@@ -1,14 +1,24 @@
 {
   "emote": {
-    "AYAYA": {
-      "1x": "https://cdn.frankerfacez.com/emoticon/162146/1",
-      "2x": "https://cdn.frankerfacez.com/emoticon/162146/2",
-      "4x": "https://cdn.frankerfacez.com/emoticon/162146/4"
-    },
     "TwitchVotes": {
       "1x": "https://static-cdn.jtvnw.net/emoticons/v1/479745/1.0",
       "2x": "https://static-cdn.jtvnw.net/emoticons/v1/479745/2.0",
       "3x": "https://static-cdn.jtvnw.net/emoticons/v1/479745/3.0"
+    },
+    "BibleThump": {
+      "1x": "https://static-cdn.jtvnw.net/emoticons/v1/86/1.0",
+      "2x": "https://static-cdn.jtvnw.net/emoticons/v1/86/2.0",
+      "3x": "https://static-cdn.jtvnw.net/emoticons/v1/86/3.0"
+    },
+    "EZ": {
+      "1x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/1x",
+      "2x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/2x",
+      "3x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/3x"
+    },
+    "AYAYA": {
+      "1x": "https://cdn.frankerfacez.com/emoticon/162146/1",
+      "2x": "https://cdn.frankerfacez.com/emoticon/162146/2",
+      "4x": "https://cdn.frankerfacez.com/emoticon/162146/4"
     },
     "peepoPooPoo": {
       "1x": "https://cdn.frankerfacez.com/emoticon/313588/1",
@@ -25,15 +35,10 @@
       "2x": "https://cdn.frankerfacez.com/emoticon/165784/2",
       "4x": "https://cdn.frankerfacez.com/emoticon/165784/4"
     },
-    "BibleThump": {
-      "1x": "https://static-cdn.jtvnw.net/emoticons/v1/86/1.0",
-      "2x": "https://static-cdn.jtvnw.net/emoticons/v1/86/2.0",
-      "3x": "https://static-cdn.jtvnw.net/emoticons/v1/86/3.0"
-    },
-    "EZ": {
-      "1x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/1x",
-      "2x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/2x",
-      "4x": "https://cdn.betterttv.net/emote/5590b223b344e2c42a9e28e3/3x"
+    "SadCat": {
+      "1x": "https://cdn.frankerfacez.com/emoticon/357348/1",
+      "2x": "https://cdn.frankerfacez.com/emoticon/357348/2",
+      "4x": "https://cdn.frankerfacez.com/emoticon/357348/4"
     }
   },
   "badge": {
