@@ -236,8 +236,8 @@ const Content = styled.div<ContentProps>`
     &:before {
       content: "";
       position: absolute;
-      top: 6px;
-      bottom: 5px;
+      top: 5px;
+      bottom: 4px;
       left: -16px;
       width: 2px;
       background-color: var(--color-white);
