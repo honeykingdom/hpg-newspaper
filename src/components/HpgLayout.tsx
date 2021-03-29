@@ -19,8 +19,8 @@ type Props = {
   children: React.ReactNode;
   date: string;
   number: string;
-  map: string;
-  statistics: StatisticItem[];
+  map?: string;
+  statistics?: StatisticItem[];
   newspaperNumbers: string[];
 };
 
@@ -44,26 +44,34 @@ const HpgLayout = ({
 
     {children}
 
-    <Heading>Статистика участников</Heading>
-    <Grid container>
-      <Grid item>
-        <CardsWrapper>
-          {statistics.slice(0, 3).map((card) => (
-            <StatisticCard key={card.name} {...card} />
-          ))}
-        </CardsWrapper>
-      </Grid>
-      <Grid item>
-        <CardsWrapper>
-          {statistics.slice(3).map((card) => (
-            <StatisticCard key={card.name} {...card} />
-          ))}
-        </CardsWrapper>
-      </Grid>
-    </Grid>
+    {statistics && (
+      <>
+        <Heading>Статистика участников</Heading>
+        <Grid container>
+          <Grid item>
+            <CardsWrapper>
+              {statistics.slice(0, 3).map((card) => (
+                <StatisticCard key={card.name} {...card} />
+              ))}
+            </CardsWrapper>
+          </Grid>
+          <Grid item>
+            <CardsWrapper>
+              {statistics.slice(3).map((card) => (
+                <StatisticCard key={card.name} {...card} />
+              ))}
+            </CardsWrapper>
+          </Grid>
+        </Grid>
+      </>
+    )}
 
-    <Heading>Карта</Heading>
-    <Map src={map} />
+    {map && (
+      <>
+        <Heading>Карта</Heading>
+        <Map src={map} />
+      </>
+    )}
   </Container>
 );
 
