@@ -18,6 +18,7 @@ module.exports = withPWA({
     loader: "imgix",
   },
   pwa: {
+    disable: process.env.NODE_ENV === "development",
     dest: "public",
   },
 });
