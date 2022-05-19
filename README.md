@@ -1,6 +1,6 @@
 # HPG Newspaper
 
-http://hpg-newspaper.netlify.app
+https://hpg-newspaper.vercel.app
 
 ## Выпуски газеты
 
