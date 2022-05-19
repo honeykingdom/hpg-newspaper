@@ -1,6 +1,6 @@
 # HPG Newspaper
 
-https://hpg-newspaper.vercel.app
+https://hpg-newspaper.surge.sh
 
 ## Выпуски газеты
 
