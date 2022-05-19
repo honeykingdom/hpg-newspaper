@@ -16,6 +16,7 @@ const gaScript = `
   gtag('config', '${GA_TRACKING_ID}', { page_path: window.location.pathname });
 `;
 
+// @ts-ignore
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();

@@ -25,12 +25,9 @@ const Emote = ({ emote, badge }: Props) => {
   const type = emote ? "emote" : "badge";
   const name = emote || badge || "";
 
-  // @ts-expect-error
   if (!icons[type][name]) return null;
 
-  // @ts-expect-error
   const src = icons[type][name]["1x"];
-  // @ts-expect-error
   const srcSet = getSrcSet(icons[type][name]);
 
   return (
